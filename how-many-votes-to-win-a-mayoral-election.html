@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Many Votes to Win a Mayoral Election? &mdash; HowToBecomeMayor.com</title>
+<meta name="description" content="How many votes does it take to win a mayoral election? The answer depends on your city — but the calculation is straightforward. Here is exactly how to find your vote target.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0a1628;
+  --navy-mid: #1a2d4a;
+  --navy-light: #243d5c;
+  --gold: #c9a84c;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --text-body: #333333;
+  --border-gold: rgba(201,168,76,0.3);
+  --border-dark: rgba(10,22,40,0.12);
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); }
+
+/* NAV */
+.nav { background: var(--navy); border-bottom: 1px solid var(--border-gold); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: white; text-decoration: none; line-height: 1.2; }
+.nav-logo span { display: block; font-size: 10px; font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; }
+.nav-cta { background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 22px; text-decoration: none; white-space: nowrap; }
+
+/* BREADCRUMB */
+.breadcrumb { background: var(--navy-mid); padding: 10px 40px; font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; }
+.breadcrumb a { color: var(--gold); text-decoration: none; }
+
+/* HEADER — dark navy */
+.article-header { background: var(--navy); padding: 56px 40px 48px; }
+.article-header-inner { max-width: 760px; }
+.article-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.article-eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
+.article-eyebrow-text { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.article-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 5vw, 50px); font-weight: 700; color: white; line-height: 1.08; margin-bottom: 28px; }
+.article-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.meta-item { font-size: 13px; color: rgba(255,255,255,0.45); }
+.meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+.meta-readtime { display: flex; align-items: center; gap: 6px; background: rgba(201,168,76,0.1); border: 1px solid var(--border-gold); padding: 5px 12px; font-size: 11px; color: var(--gold); letter-spacing: 0.08em; }
+.meta-readtime svg { width: 12px; height: 12px; stroke: var(--gold); fill: none; stroke-width: 2; }
+
+/* LAYOUT */
+.layout { display: grid; grid-template-columns: 1fr 272px; max-width: 1040px; margin: 0 auto; background: var(--white); }
+
+/* ARTICLE BODY — pure white, black text, high contrast */
+.body-wrap { background: var(--white); padding: 48px 48px 64px; min-width: 0; }
+
+.article-lede { font-family: 'Cormorant Garamond', serif; font-size: 21px; color: var(--navy); line-height: 1.65; margin-bottom: 32px; border-left: 3px solid var(--gold); padding-left: 22px; font-weight: 500; }
+
+.article-content p { font-size: 17px; line-height: 1.9; color: #333; margin-bottom: 22px; font-family: 'Cormorant Garamond', serif; }
+.article-content p strong { color: #1a1a1a; font-weight: 600; }
+.article-content a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.article-content a:hover { color: var(--gold); }
+
+.article-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--navy); font-weight: 700; line-height: 1.2; margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border-dark); }
+.article-content h3 { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; margin: 32px 0 12px; }
+
+/* INLINE CTA */
+.inline-cta { background: var(--navy); padding: 28px 32px; margin: 36px 0; border-left: 4px solid var(--gold); }
+.inline-cta-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.inline-cta p { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: white; line-height: 1.55; margin-bottom: 18px; font-style: italic; }
+.inline-cta a { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 11px 24px; text-decoration: none; }
+
+/* PULL QUOTE */
+.pull-quote { border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); padding: 28px 0; margin: 36px 0; }
+.pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--navy); line-height: 1.5; font-style: italic; font-weight: 600; }
+
+/* AUTHOR BIO */
+.author-bio { border-top: 2px solid var(--border-dark); padding-top: 36px; margin-top: 44px; display: flex; gap: 20px; align-items: flex-start; }
+.author-avatar { width: 52px; height: 52px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--gold); font-weight: 700; }
+.author-name { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 3px; }
+.author-role { font-size: 11px; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 8px; }
+.author-desc { font-size: 13px; color: #555; line-height: 1.7; }
+
+/* SIDEBAR — dark navy */
+.sidebar { background: var(--navy-mid); padding: 28px 20px; display: flex; flex-direction: column; gap: 20px; border-left: 1px solid var(--border-gold); }
+.sidebar-section-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.sidebar-card { background: rgba(255,255,255,0.04); border: 1px solid var(--border-gold); padding: 20px 18px; }
+.sidebar-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: white; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
+.sidebar-card p { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 14px; }
+.sidebar-btn { display: block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 14px; text-align: center; text-decoration: none; }
+.sidebar-btn-ghost { background: rgba(201,168,76,0.08); color: var(--gold); border: 1px solid var(--border-gold); }
+.sidebar-toc { border: 1px solid var(--border-gold); padding: 18px; }
+.sidebar-toc ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.sidebar-toc li { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.4; padding-left: 10px; border-left: 2px solid rgba(201,168,76,0.2); cursor: pointer; transition: all 0.2s; }
+.sidebar-toc li:hover { color: var(--gold); border-left-color: var(--gold); }
+
+/* RELATED */
+.related { background: var(--navy); padding: 56px 40px; }
+.related-inner { max-width: 1040px; margin: 0 auto; }
+.related-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.related-heading { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: white; font-weight: 700; margin-bottom: 28px; }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-gold); border: 1px solid var(--border-gold); }
+.related-card { background: var(--navy-mid); padding: 24px 20px; text-decoration: none; display: block; transition: background 0.2s; }
+.related-card:hover { background: var(--navy-light); }
+.related-card-cat { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.related-card-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: white; font-weight: 600; line-height: 1.35; margin-bottom: 10px; }
+.related-card-time { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+/* STICKY BAR */
+.sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--navy); border-top: 2px solid var(--gold); padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 14px; z-index: 200; transform: translateY(102%); transition: transform 0.35s ease; }
+.sticky-bar.show { transform: translateY(0); }
+.sticky-bar-text { font-size: 14px; color: rgba(255,255,255,0.8); }
+.sticky-bar-text strong { color: white; }
+.sticky-bar-btn { background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 11px 22px; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap; flex-shrink: 0; }
+.sticky-close { background: none; border: none; color: rgba(255,255,255,0.3); font-size: 22px; cursor: pointer; padding: 0 4px; flex-shrink: 0; line-height: 1; }
+
+/* POPUP */
+.popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 300; display: none; align-items: center; justify-content: center; padding: 20px; }
+.popup-overlay.show { display: flex; }
+.popup-box { background: var(--navy); border: 1px solid var(--border-gold); padding: 40px 32px; max-width: 440px; width: 100%; position: relative; animation: up 0.22s ease; }
+@keyframes up { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.popup-x { position: absolute; top: 12px; right: 16px; background: none; border: none; color: rgba(255,255,255,0.3); font-size: 24px; cursor: pointer; line-height: 1; }
+.popup-eye { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.popup-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: white; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+.popup-box > p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 22px; }
+.popup-form { display: flex; flex-direction: column; gap: 12px; }
+.popup-input { padding: 13px 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-gold); color: white; font-size: 14px; font-family: 'DM Sans', sans-serif; outline: none; }
+.popup-input::placeholder { color: rgba(255,255,255,0.25); }
+.popup-input:focus { border-color: var(--gold); }
+.popup-submit { padding: 14px; background: var(--gold); color: var(--navy); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.popup-fine { font-size: 11px; color: rgba(255,255,255,0.2); text-align: center; margin-top: 4px; }
+
+/* FOOTER */
+.footer { background: var(--navy); border-top: 1px solid var(--border-gold); padding: 32px 40px; color: rgba(255,255,255,0.3); font-size: 12px; line-height: 1.8; }
+.footer-name { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: white; margin-bottom: 6px; }
+.footer a { color: var(--gold); text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 820px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { border-left: none; border-top: 1px solid var(--border-gold); flex-direction: row; flex-wrap: wrap; padding: 24px 20px; }
+  .sidebar > div { flex: 1; min-width: 220px; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 580px) {
+  .nav { padding: 0 16px; }
+  .breadcrumb { padding: 10px 16px; }
+  .article-header { padding: 36px 16px 32px; }
+  .article-title { font-size: 28px; }
+  .body-wrap { padding: 28px 16px 48px; }
+  .article-content p { font-size: 16px; }
+  .article-lede { font-size: 18px; }
+  .article-content h2 { font-size: 22px; }
+  .sticky-bar { padding: 10px 16px; }
+  .sticky-bar-text { font-size: 12px; }
+  .related { padding: 36px 16px; }
+  .footer { padding: 24px 16px; }
+  .popup-box { padding: 32px 20px; }
+}
+
+.paa { margin-top: 48px; padding-top: 40px; border-top: 2px solid rgba(10,22,40,0.12); }
+.paa-label { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 28px; padding-bottom: 12px; border-bottom: 1px solid rgba(10,22,40,0.08); }
+.paa-item { padding: 22px 0; border-bottom: 1px solid rgba(10,22,40,0.08); }
+.paa-item:last-child { border-bottom: none; }
+.paa-q { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.3; padding-left: 16px; border-left: 3px solid var(--gold); }
+.paa-a { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: #444; line-height: 1.8; padding-left: 16px; }
+.paa-a a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="breadcrumb"><a href="https://howtobecomemayor.com">Home</a> &nbsp;&rsaquo;&nbsp; <a href="https://howtobecomemayor.com/blog">Blog</a> &nbsp;&rsaquo;&nbsp; How Many Votes to Win a Mayoral Election?</div>
+<div class="article-header"><div class="article-header-inner">
+  <div class="article-eyebrow"><div class="article-eyebrow-line"></div><div class="article-eyebrow-text">The Campaign</div></div>
+  <h1 class="article-title">How Many Votes to Win a Mayoral Election?</h1>
+  <div class="article-meta"><span class="meta-item">Jim Blackburn</span><span class="meta-dot"></span><span class="meta-item">March 2026</span><span class="meta-dot"></span><span class="meta-readtime"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>7 min read</span></div>
+</div></div>
+<div class="layout">
+<div class="body-wrap"><article>
+<p class="article-lede">How many votes does it take to win a mayoral election? The answer varies by city, but the calculation is straightforward — and knowing your exact vote target is one of the most important strategic exercises in any mayoral campaign.</p>
+<div class="article-content">
+<p>How many votes does it take to win a mayoral election? The answer varies enormously by city size, voter turnout, and the number of candidates in the race — but the calculation is more straightforward than most first-time candidates realize, and understanding it precisely is one of the most important strategic exercises in campaign planning. Knowing your vote target determines your voter contact strategy, your volunteer needs, your budget requirements, and how you allocate time across the campaign.</p>
+
+<p>The starting point for calculating how many votes to win a mayoral election is voter turnout data from recent comparable elections in your city. Mayoral election turnout varies dramatically — from as low as 8 percent of registered voters in some off-year local elections to 40 percent or more in presidential election years when local races are on the same ballot. The timing of your city&rsquo;s mayoral election relative to state and federal elections has a larger effect on your vote target than almost any other single factor.</p>
+
+<p>According to <a href="https://www.pewresearch.org/fact-tank/2017/05/15/u-s-voter-turnout-trails-most-developed-countries/" target="_blank" rel="noopener">Pew Research Center analysis of U.S. election turnout</a>, local elections held in odd years with no concurrent state or federal races consistently produce the lowest turnout — averaging 15 to 27 percent of registered voters in most American cities. This low-turnout environment has specific strategic implications for how many votes you need and which voters you should prioritize reaching.</p>
+
+<h2 id="h1">How to Calculate Your Vote Target</h2>
+
+<p>Calculating how many votes to win a mayoral election in your specific city requires three data points, all of which are publicly available from your county supervisor of elections or state division of elections.</p>
+
+<p><strong>Total registered voters in the city.</strong> This is the denominator for all turnout calculations. In a city of 185,000 residents, registered voters typically number 90,000 to 120,000 — roughly 65 percent of the adult population, depending on state registration laws and recent registration drives.</p>
+
+<p><strong>Historical turnout rate for comparable elections.</strong> Look at the last two or three mayoral elections in your city — not presidential or gubernatorial election years, but the specific election cycle your race falls in. If your city holds mayoral elections in odd-numbered years with no concurrent major races, use the turnout from the last two odd-year local elections. If your city&rsquo;s mayoral race falls in even years, use even-year turnout data.</p>
+
+<p><strong>Number of candidates expected in the race.</strong> A two-candidate race requires a simple majority — 50 percent plus one vote. A three-candidate race can be won with as little as 34 percent of votes cast if the opposition vote splits evenly. A four-candidate race can theoretically be won with 26 percent. Understanding how the vote will divide is essential for setting a realistic and achievable vote target.</p>
+
+<p>The formula: (Registered voters) × (Expected turnout rate) × (Expected vote share needed to win) = Your vote target. For a city with 100,000 registered voters, 20 percent expected turnout, and a two-candidate race: 100,000 × 0.20 × 0.51 = 10,200 votes needed to win. <a href="https://howtobecomemayor.com/how-do-local-elections-work">How local elections work</a> in your specific state and city affects every element of this calculation.</p>
+
+<div class="inline-cta">
+  <div class="inline-cta-label">Know Your Number. Build the System to Hit It.</div>
+  <p>"How To Become Mayor teaches candidates how to work backward from their vote target to build the voter contact strategy, volunteer structure, and community coalition needed to hit that number on election day."</p>
+  <a href="https://howtobecomemayor.com" onclick="openPopup();return false;">Check If Your City&rsquo;s Seat Is Available &rarr;</a>
+</div>
+
+<h2 id="h2">Why Low Turnout Favors the Well-Organized Candidate</h2>
+
+<p>Off-year local elections with turnout of 15 to 20 percent of registered voters are decided by a relatively small, unusually engaged slice of the electorate. These low-turnout voters are disproportionately older, more educated, more politically engaged, and more likely to be active in civic organizations than the general population. They are exactly the voters that a candidate with years of civic engagement and strong neighborhood association endorsements is most likely to reach through community networks.</p>
+
+<p>The strategic implication is significant. In a low-turnout election, the candidate who has the deepest relationships with the most organizationally active community members has an outsized advantage compared to what those relationships would represent in a high-turnout environment. Your neighborhood association endorsements, your civic organization relationships, and your years of community engagement represent a larger share of the actual electorate in a 15 percent turnout election than in a 60 percent turnout election.</p>
+
+<p>This is why the 14-year approach to becoming mayor is specifically optimized for the local election environment. The community relationships it builds reach exactly the voters who decide off-year mayoral elections. <a href="https://howtobecomemayor.com/how-to-build-a-political-coalition">Building a political coalition</a> of engaged community leaders is a more reliable path to 10,000 votes in a low-turnout election than any advertising campaign aimed at the general population.</p>
+
+<div class="pull-quote">
+  <p>"In a city of 185,000 people, a mayoral election might be decided by 14,000 votes. That is a human-scale number — reachable through genuine community relationships and a well-organized ground game."</p>
+</div>
+
+<h2 id="h3">Working Backward From Your Vote Target to Your Campaign Strategy</h2>
+
+<p>Once you know how many votes to win your specific mayoral election, you can work backward to determine exactly what your campaign needs to do to get there. This backward calculation turns an abstract goal into a concrete operational plan.</p>
+
+<p>If you need 12,000 votes to win: assuming a 40 percent conversion rate from voter contact to committed votes (a reasonable estimate for direct, personal voter contact with voters who have been properly identified as potentially favorable), you need to make direct, quality contact with approximately 30,000 voters during the campaign. At 30 doors per volunteer per hour and four hours per canvassing event, you need approximately 250 volunteer-events to reach 30,000 voters. At 10 volunteers per canvassing event, that is 25 canvassing events over the campaign period — roughly one per week for six months.</p>
+
+<p>This kind of operational planning transforms "how many votes do I need?" from an anxiety-producing question into a manageable project with a defined scope, resource requirement, and timeline. <a href="https://howtobecomemayor.com/how-to-campaign-for-mayor-on-a-small-budget">Campaigning for mayor on a small budget</a> requires exactly this precision — knowing your number and building the minimum viable campaign to hit it.</p>
+
+<h2 id="h4">Runoff Elections — When Your Vote Target Changes</h2>
+
+<p>Many American cities use runoff elections when no candidate receives a majority of votes in the primary election. In cities with runoff systems, the first election is about making the runoff — finishing in the top two — rather than winning outright. The vote target for the first election is therefore lower: you need enough votes to finish second, not first.</p>
+
+<p>According to <a href="https://www.ballotpedia.org/Runoff_election" target="_blank" rel="noopener">Ballotpedia&rsquo;s analysis of runoff election data</a>, runoff elections typically produce lower turnout than the primary election that preceded them — which makes the runoff even more favorable for the candidate with the strongest organized community support. The candidate who finished second in the primary with strong neighborhood association and civic organization backing often outperforms the frontrunner in the runoff because their coalition is more organized and more motivated.</p>
+
+<p>Understanding whether your city uses a runoff system is essential for vote target calculation and campaign strategy. Check your city charter or ask the city clerk. <a href="https://howtobecomemayor.com" onclick="openPopup();return false;">How To Become Mayor</a> prepares you for both election structures — and your city&rsquo;s exclusive seat may still be available.</p>
+
+<p>According to <a href="https://www.eac.gov/voters/register-and-vote-in-your-state" target="_blank" rel="noopener">U.S. Election Assistance Commission resources</a>, each state has its own rules governing local election formats, runoff thresholds, and vote-counting procedures. Knowing your state&rsquo;s specific rules is essential for accurate vote target calculation and campaign planning.</p>
+</div>
+<div class="paa"><div class="paa-label">People Also Ask</div><div class="paa-item"><div class="paa-q">What percentage of registered voters typically vote in a local election?</div><div class="paa-a">In off-year local elections with no concurrent state or federal races, turnout typically ranges from 15 to 27 percent of registered voters. In even-year elections held concurrently with state or federal races, turnout is significantly higher — 40 to 60 percent or more. <a href="https://howtobecomemayor.com/how-do-local-elections-work">How local elections work</a> in your specific city and state determines which turnout scenario applies to your race.</div></div><div class="paa-item"><div class="paa-q">How do I calculate how many votes I need to win my specific city?</div><div class="paa-a">Multiply registered voters by expected turnout rate by expected vote share needed to win. For a city with 100,000 registered voters, 20% turnout, and a two-candidate race: 100,000 × 0.20 × 0.51 = 10,200 votes. Get registered voter counts and historical turnout data from your county supervisor of elections. <a href="https://howtobecomemayor.com/how-do-local-elections-work">How local elections work</a> covers how to find this data for your specific jurisdiction.</div></div><div class="paa-item"><div class="paa-q">What is voter turnout in an off-year local election?</div><div class="paa-a">Off-year local elections — held in odd-numbered years with no concurrent state or federal races — typically produce turnout of 15 to 27 percent of registered voters nationally, though individual cities vary significantly. Some cities with highly competitive or high-profile local races see higher turnout. Check your city&rsquo;s specific historical turnout data from the last two comparable elections.</div></div><div class="paa-item"><div class="paa-q">How does a runoff election work in a mayoral race?</div><div class="paa-a">In cities with runoff systems, if no candidate receives a majority of votes in the primary election, the top two vote-getters advance to a separate runoff election. The runoff is a head-to-head race between the two finalists. Runoff elections typically produce lower turnout than the primary, which favors candidates with the most organized and motivated community support. <a href="https://howtobecomemayor.com/how-do-local-elections-work">How local elections work</a> in your state determines whether your city uses a runoff system.</div></div><div class="paa-item"><div class="paa-q">What is a plurality win versus a majority win in a local election?</div><div class="paa-a">A plurality win means receiving more votes than any other single candidate — even if that total is less than 50% of all votes cast. A majority win means receiving more than 50% of all votes cast. Many cities use plurality systems for multi-candidate races. Others require a majority and use runoffs if no candidate reaches 50%. Check your city charter to understand which system applies.</div></div><div class="paa-item"><div class="paa-q">How many votes did the last mayor of my city win with?</div><div class="paa-a">Check your county supervisor of elections website or your state&rsquo;s division of elections for official results from past mayoral elections. Most states publish complete election results going back several cycles. This historical data is the most reliable basis for your own vote target calculation. <a href="https://howtobecomemayor.com/how-do-local-elections-work">How local elections work</a> includes where to find this public data.</div></div><div class="paa-item"><div class="paa-q">Does low voter turnout help or hurt an outsider candidate?</div><div class="paa-a">Low voter turnout generally helps well-organized outsider candidates. In low-turnout elections, the active minority of voters who consistently participate skews toward civically engaged residents — exactly the population that neighborhood association endorsements, civic organization relationships, and years of community engagement most directly reach. <a href="https://howtobecomemayor.com/how-to-build-a-political-coalition">Building a political coalition</a> of organizationally active community leaders is most powerful in low-turnout environments.</div></div><div class="paa-item"><div class="paa-q">How do I use voter turnout data to plan my campaign strategy?</div><div class="paa-a">Work backward from your vote target. Calculate how many voter contacts you need to make at your estimated conversion rate. Determine how many volunteer-hours that requires. Build your volunteer recruitment and canvassing schedule to deliver those hours over the campaign timeline. This operational planning turns your vote target into a concrete, manageable campaign schedule. <a href="https://howtobecomemayor.com/how-to-campaign-for-mayor-on-a-small-budget">Campaigning for mayor on a small budget</a> requires exactly this precision.</div></div></div>
+<div class="author-bio">
+  <div class="author-avatar">JB</div>
+  <div>
+    <div class="author-name">Jim Blackburn</div>
+    <div class="author-role">Creator of Character Branding&reg; &nbsp;&middot;&nbsp; Founder, HowToBecomeMayor.com &nbsp;&middot;&nbsp; Fort Lauderdale Mayor Project 2026&ndash;2040</div>
+    <div class="author-desc">Jim Blackburn is a Fort Lauderdale entrepreneur and civic leader with zero political experience who made a public 14-year commitment to become Mayor of Fort Lauderdale by November 2040. He is the creator of Character Branding&reg; and the founder of the only national coaching community for future mayors in America.</div>
+  </div>
+</div>
+</article></div>
+<aside class="sidebar">
+  <div><div class="sidebar-section-label">Is Your City Available?</div>
+  <div class="sidebar-card"><h4>One seat per city. Check yours now.</h4><p>19,495 cities. One exclusive seat each. Your competitor may already be looking.</p><a class="sidebar-btn" href="#" onclick="openPopup();return false;">Check Your City &rarr;</a></div></div>
+  <div class="sidebar-toc"><div class="sidebar-section-label">In This Article</div><ul><li onclick="document.getElementById('h1').scrollIntoView({behavior:'smooth'})">How to calculate your vote target</li><li onclick="document.getElementById('h2').scrollIntoView({behavior:'smooth'})">Why low turnout favors the organized candidate</li><li onclick="document.getElementById('h3').scrollIntoView({behavior:'smooth'})">Working backward from vote target to strategy</li><li onclick="document.getElementById('h4').scrollIntoView({behavior:'smooth'})">Runoff elections — when your target changes</li></ul></div>
+  <div><div class="sidebar-section-label">The Complete Course</div>
+  <div class="sidebar-card"><h4>100+ pages. The full system.</h4><p>Every stage of the journey. Included with every city seat.</p><a class="sidebar-btn sidebar-btn-ghost" href="#" onclick="openPopup();return false;">Learn More &rarr;</a></div></div>
+</aside>
+</div>
+<div class="related"><div class="related-inner">
+  <div class="related-eyebrow">Keep Reading</div>
+  <div class="related-heading">More from How To Become Mayor</div>
+  <div class="related-grid"><a class="related-card" href="https://howtobecomemayor.com/how-do-local-elections-work"><div class="related-card-cat">Strategy</div><div class="related-card-title">How Do Local Elections Work?</div><div class="related-card-time">8 min read</div></a><a class="related-card" href="https://howtobecomemayor.com/how-to-campaign-for-mayor-on-a-small-budget"><div class="related-card-cat">The Campaign</div><div class="related-card-title">How to Campaign for Mayor on a Small Budget</div><div class="related-card-time">8 min read</div></a><a class="related-card" href="https://howtobecomemayor.com/how-to-build-a-political-coalition"><div class="related-card-cat">Strategy</div><div class="related-card-title">How to Build a Political Coalition</div><div class="related-card-time">8 min read</div></a></div>
+</div></div>
+<div id="footer-placeholder"></div>
+<div class="sticky-bar" id="stickyBar"><div class="sticky-bar-text"><strong>Your city&rsquo;s seat may still be available.</strong> Check before someone else does.</div><button class="sticky-bar-btn" onclick="openPopup()">Check My City &rarr;</button><button class="sticky-close" onclick="document.getElementById('stickyBar').classList.remove('show')">&times;</button></div>
+<div class="popup-overlay" id="popupOverlay" onclick="if(event.target===this)closePopup()"><div class="popup-box"><button class="popup-x" onclick="closePopup()">&times;</button><div class="popup-eye">One Seat Per City</div><h3>Check if your city is still available.</h3><p>Enter your details. We respond within 24 hours. No commitment required.</p><div class="popup-form" id="popupForm"><input class="popup-input" type="text" id="popName" placeholder="Your first name"/><input class="popup-input" type="email" id="popEmail" placeholder="Your email address"/><input class="popup-input" type="text" id="popCity" placeholder="Your city and state (e.g. Denver, CO)"/><button class="popup-submit" onclick="submitPopup()">Check My City&rsquo;s Availability &rarr;</button><p class="popup-fine">No credit card. No commitment. One decision.</p></div></div></div>
+<script>
+let dismissed=false;
+window.addEventListener('scroll',function(){if(dismissed)return;if(window.scrollY/(document.body.scrollHeight-window.innerHeight)>0.3)document.getElementById('stickyBar').classList.add('show');});
+function openPopup(){document.getElementById('popupOverlay').classList.add('show');document.body.style.overflow='hidden';}
+function closePopup(){document.getElementById('popupOverlay').classList.remove('show');document.body.style.overflow='';}
+function submitPopup(){const n=document.getElementById('popName').value.trim(),e=document.getElementById('popEmail').value.trim(),c=document.getElementById('popCity').value.trim();if(!n||!e||!c){alert('Please fill in all three fields.');return;}document.getElementById('popupForm').innerHTML=`<div style="text-align:center;padding:20px 0;"><div style="font-size:48px;color:var(--gold);margin-bottom:14px;">&#10003;</div><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:10px;">You're on the list.</div><div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;">We'll contact you within 24 hours about <strong style="color:white;">${c}</strong>.</div></div>`;}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup();});
+</script>
+<script src="/js/components.js"></script>
+</body></html>

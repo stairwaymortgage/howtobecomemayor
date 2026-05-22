@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Run for Mayor With No Money &mdash; HowToBecomeMayor.com</title>
+<meta name="description" content="Running for mayor with no money is not realistic. Running on a lean budget with years of community trust behind you is. Here is the honest strategy for low-budget mayoral campaigns.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0a1628;
+  --navy-mid: #1a2d4a;
+  --navy-light: #243d5c;
+  --gold: #c9a84c;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --text-body: #333333;
+  --border-gold: rgba(201,168,76,0.3);
+  --border-dark: rgba(10,22,40,0.12);
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); }
+
+/* NAV */
+.nav { background: var(--navy); border-bottom: 1px solid var(--border-gold); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: white; text-decoration: none; line-height: 1.2; }
+.nav-logo span { display: block; font-size: 10px; font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; }
+.nav-cta { background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 22px; text-decoration: none; white-space: nowrap; }
+
+/* BREADCRUMB */
+.breadcrumb { background: var(--navy-mid); padding: 10px 40px; font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; }
+.breadcrumb a { color: var(--gold); text-decoration: none; }
+
+/* HEADER — dark navy */
+.article-header { background: var(--navy); padding: 56px 40px 48px; }
+.article-header-inner { max-width: 760px; }
+.article-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.article-eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
+.article-eyebrow-text { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.article-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 5vw, 50px); font-weight: 700; color: white; line-height: 1.08; margin-bottom: 28px; }
+.article-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.meta-item { font-size: 13px; color: rgba(255,255,255,0.45); }
+.meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+.meta-readtime { display: flex; align-items: center; gap: 6px; background: rgba(201,168,76,0.1); border: 1px solid var(--border-gold); padding: 5px 12px; font-size: 11px; color: var(--gold); letter-spacing: 0.08em; }
+.meta-readtime svg { width: 12px; height: 12px; stroke: var(--gold); fill: none; stroke-width: 2; }
+
+/* LAYOUT */
+.layout { display: grid; grid-template-columns: 1fr 272px; max-width: 1040px; margin: 0 auto; background: var(--white); }
+
+/* ARTICLE BODY — pure white, black text, high contrast */
+.body-wrap { background: var(--white); padding: 48px 48px 64px; min-width: 0; }
+
+.article-lede { font-family: 'Cormorant Garamond', serif; font-size: 21px; color: var(--navy); line-height: 1.65; margin-bottom: 32px; border-left: 3px solid var(--gold); padding-left: 22px; font-weight: 500; }
+
+.article-content p { font-size: 17px; line-height: 1.9; color: #333; margin-bottom: 22px; font-family: 'Cormorant Garamond', serif; }
+.article-content p strong { color: #1a1a1a; font-weight: 600; }
+.article-content a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.article-content a:hover { color: var(--gold); }
+
+.article-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--navy); font-weight: 700; line-height: 1.2; margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border-dark); }
+.article-content h3 { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; margin: 32px 0 12px; }
+
+/* INLINE CTA */
+.inline-cta { background: var(--navy); padding: 28px 32px; margin: 36px 0; border-left: 4px solid var(--gold); }
+.inline-cta-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.inline-cta p { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: white; line-height: 1.55; margin-bottom: 18px; font-style: italic; }
+.inline-cta a { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 11px 24px; text-decoration: none; }
+
+/* PULL QUOTE */
+.pull-quote { border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); padding: 28px 0; margin: 36px 0; }
+.pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--navy); line-height: 1.5; font-style: italic; font-weight: 600; }
+
+/* AUTHOR BIO */
+.author-bio { border-top: 2px solid var(--border-dark); padding-top: 36px; margin-top: 44px; display: flex; gap: 20px; align-items: flex-start; }
+.author-avatar { width: 52px; height: 52px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--gold); font-weight: 700; }
+.author-name { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 3px; }
+.author-role { font-size: 11px; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 8px; }
+.author-desc { font-size: 13px; color: #555; line-height: 1.7; }
+
+/* SIDEBAR — dark navy */
+.sidebar { background: var(--navy-mid); padding: 28px 20px; display: flex; flex-direction: column; gap: 20px; border-left: 1px solid var(--border-gold); }
+.sidebar-section-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.sidebar-card { background: rgba(255,255,255,0.04); border: 1px solid var(--border-gold); padding: 20px 18px; }
+.sidebar-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: white; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
+.sidebar-card p { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 14px; }
+.sidebar-btn { display: block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 14px; text-align: center; text-decoration: none; }
+.sidebar-btn-ghost { background: rgba(201,168,76,0.08); color: var(--gold); border: 1px solid var(--border-gold); }
+.sidebar-toc { border: 1px solid var(--border-gold); padding: 18px; }
+.sidebar-toc ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.sidebar-toc li { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.4; padding-left: 10px; border-left: 2px solid rgba(201,168,76,0.2); cursor: pointer; transition: all 0.2s; }
+.sidebar-toc li:hover { color: var(--gold); border-left-color: var(--gold); }
+
+/* RELATED */
+.related { background: var(--navy); padding: 56px 40px; }
+.related-inner { max-width: 1040px; margin: 0 auto; }
+.related-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.related-heading { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: white; font-weight: 700; margin-bottom: 28px; }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-gold); border: 1px solid var(--border-gold); }
+.related-card { background: var(--navy-mid); padding: 24px 20px; text-decoration: none; display: block; transition: background 0.2s; }
+.related-card:hover { background: var(--navy-light); }
+.related-card-cat { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.related-card-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: white; font-weight: 600; line-height: 1.35; margin-bottom: 10px; }
+.related-card-time { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+/* STICKY BAR */
+.sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--navy); border-top: 2px solid var(--gold); padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 14px; z-index: 200; transform: translateY(102%); transition: transform 0.35s ease; }
+.sticky-bar.show { transform: translateY(0); }
+.sticky-bar-text { font-size: 14px; color: rgba(255,255,255,0.8); }
+.sticky-bar-text strong { color: white; }
+.sticky-bar-btn { background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 11px 22px; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap; flex-shrink: 0; }
+.sticky-close { background: none; border: none; color: rgba(255,255,255,0.3); font-size: 22px; cursor: pointer; padding: 0 4px; flex-shrink: 0; line-height: 1; }
+
+/* POPUP */
+.popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 300; display: none; align-items: center; justify-content: center; padding: 20px; }
+.popup-overlay.show { display: flex; }
+.popup-box { background: var(--navy); border: 1px solid var(--border-gold); padding: 40px 32px; max-width: 440px; width: 100%; position: relative; animation: up 0.22s ease; }
+@keyframes up { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.popup-x { position: absolute; top: 12px; right: 16px; background: none; border: none; color: rgba(255,255,255,0.3); font-size: 24px; cursor: pointer; line-height: 1; }
+.popup-eye { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.popup-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: white; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+.popup-box > p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 22px; }
+.popup-form { display: flex; flex-direction: column; gap: 12px; }
+.popup-input { padding: 13px 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-gold); color: white; font-size: 14px; font-family: 'DM Sans', sans-serif; outline: none; }
+.popup-input::placeholder { color: rgba(255,255,255,0.25); }
+.popup-input:focus { border-color: var(--gold); }
+.popup-submit { padding: 14px; background: var(--gold); color: var(--navy); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.popup-fine { font-size: 11px; color: rgba(255,255,255,0.2); text-align: center; margin-top: 4px; }
+
+/* FOOTER */
+.footer { background: var(--navy); border-top: 1px solid var(--border-gold); padding: 32px 40px; color: rgba(255,255,255,0.3); font-size: 12px; line-height: 1.8; }
+.footer-name { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: white; margin-bottom: 6px; }
+.footer a { color: var(--gold); text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 820px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { border-left: none; border-top: 1px solid var(--border-gold); flex-direction: row; flex-wrap: wrap; padding: 24px 20px; }
+  .sidebar > div { flex: 1; min-width: 220px; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 580px) {
+  .nav { padding: 0 16px; }
+  .breadcrumb { padding: 10px 16px; }
+  .article-header { padding: 36px 16px 32px; }
+  .article-title { font-size: 28px; }
+  .body-wrap { padding: 28px 16px 48px; }
+  .article-content p { font-size: 16px; }
+  .article-lede { font-size: 18px; }
+  .article-content h2 { font-size: 22px; }
+  .sticky-bar { padding: 10px 16px; }
+  .sticky-bar-text { font-size: 12px; }
+  .related { padding: 36px 16px; }
+  .footer { padding: 24px 16px; }
+  .popup-box { padding: 32px 20px; }
+}
+
+.paa { margin-top: 48px; padding-top: 40px; border-top: 2px solid rgba(10,22,40,0.12); }
+.paa-label { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 28px; padding-bottom: 12px; border-bottom: 1px solid rgba(10,22,40,0.08); }
+.paa-item { padding: 22px 0; border-bottom: 1px solid rgba(10,22,40,0.08); }
+.paa-item:last-child { border-bottom: none; }
+.paa-q { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.3; padding-left: 16px; border-left: 3px solid var(--gold); }
+.paa-a { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: #444; line-height: 1.8; padding-left: 16px; }
+.paa-a a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="breadcrumb"><a href="https://howtobecomemayor.com">Home</a> &nbsp;&rsaquo;&nbsp; <a href="https://howtobecomemayor.com/blog">Blog</a> &nbsp;&rsaquo;&nbsp; How to Run for Mayor With No Money</div>
+<div class="article-header"><div class="article-header-inner">
+  <div class="article-eyebrow"><div class="article-eyebrow-line"></div><div class="article-eyebrow-text">The Campaign</div></div>
+  <h1 class="article-title">How to Run for Mayor With No Money</h1>
+  <div class="article-meta"><span class="meta-item">Jim Blackburn</span><span class="meta-dot"></span><span class="meta-item">March 2026</span><span class="meta-dot"></span><span class="meta-readtime"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8 min read</span></div>
+</div></div>
+<div class="layout">
+<div class="body-wrap"><article>
+<p class="article-lede">Running for mayor with no money is not a realistic path to winning. But running for mayor with significantly less money than your opponents — because you have spent years building the community trust that paid advertising tries to manufacture — is not just possible. It has worked in cities across America.</p>
+<div class="article-content">
+<p>Running for mayor with no money is not a realistic path to winning a competitive mayoral race in a mid-size or large American city. But running for mayor on a small budget — significantly smaller than what better-funded opponents spend — is not only possible. It has produced successful mayors in cities across America. The difference between running with no money and running on a lean budget is the difference between a fantasy and a strategy.</p>
+
+<p>The more important truth is this: the candidate who spends eight to ten years building genuine community trust before they run is dramatically less dependent on money than the candidate who tries to manufacture name recognition through paid advertising in a six-month campaign. <a href="https://howtobecomemayor.com/how-long-does-it-take-to-become-mayor">How long it takes to become mayor</a> is directly related to how much money you need to win — the longer you build, the less you need to spend.</p>
+
+<p>According to <a href="https://www.ballotpedia.org/Mayoral_elections" target="_blank" rel="noopener">Ballotpedia analysis of local election spending</a>, incumbents and well-funded challengers in mid-size city mayoral races typically spend between $200,000 and $800,000 on winning campaigns. First-time outsider candidates who win with significantly less almost universally share one characteristic: years of pre-existing community trust that made paid advertising partially redundant.</p>
+
+<h2 id="h1">What Campaign Money Actually Buys — and What It Cannot</h2>
+
+<p>Understanding how to run for mayor with no money starts with understanding what campaign money actually purchases. In a local election, campaign spending primarily buys three things: name recognition, voter contact, and organizational capacity.</p>
+
+<p>Name recognition through paid advertising — mailers, digital ads, yard signs, radio spots — is expensive and produces shallow results. A voter who sees your mailer three times knows your name but has no particular reason to trust you. Name recognition built through years of civic engagement is free and produces deep results. A voter who has seen you at neighborhood meetings for five years knows your name and has a specific, personal reason to believe in you.</p>
+
+<p>Voter contact — door knocking, phone banking, canvassing — requires either paid staff or an organized volunteer team. Paid staff is expensive. A well-organized volunteer team built from years of genuine community relationships is free. The candidate who has been contributing to civic organizations for a decade has a natural volunteer base that a well-funded newcomer cannot buy.</p>
+
+<p>Organizational capacity — a campaign manager, a treasurer, a communications director — can be hired or can be filled by talented volunteers who believe in the candidate. <a href="https://howtobecomemayor.com/how-to-build-a-political-coalition">Building a political coalition</a> over years means that when you announce your campaign, people with skills and capacity are already waiting to help.</p>
+
+<div class="inline-cta">
+  <div class="inline-cta-label">The System That Reduces Your Dependence on Money</div>
+  <p>"The 14-year arc in How To Become Mayor is, among other things, a strategy for reducing the amount of money you need to win — because trust built over years is worth more than advertising bought in months."</p>
+  <a href="https://howtobecomemayor.com" onclick="openPopup();return false;">Check If Your City&rsquo;s Seat Is Available &rarr;</a>
+</div>
+
+<h2 id="h2">The Minimum Budget for a Competitive Mayoral Campaign</h2>
+
+<p>Running for mayor with no money means running without the ability to print yard signs, mail voters, create a website, file legally required campaign finance reports, or cover basic operational costs. That is not a campaign — it is a protest candidacy. There is a meaningful floor below which a serious mayoral campaign cannot function.</p>
+
+<p>For a city of 50,000 to 150,000 people, a bare-minimum serious campaign budget is approximately $25,000 to $75,000. For a city of 150,000 to 500,000, that floor rises to $75,000 to $200,000. These numbers cover the essentials: legal filing fees, campaign website, basic printed materials, voter data access, and minimal digital advertising. They do not cover paid staff, significant mail programs, or television and radio advertising.</p>
+
+<p>Within those minimums, every dollar should be prioritized toward direct voter contact rather than passive brand awareness. A thousand dollars spent on trained volunteers doing door knocking consistently produces more votes per dollar than a thousand dollars spent on social media advertising. <a href="https://howtobecomemayor.com/how-to-campaign-for-mayor-on-a-small-budget">Campaigning for mayor on a small budget</a> is fundamentally about maximizing the return on every dollar through high-touch, direct voter contact.</p>
+
+<div class="pull-quote">
+  <p>"The best campaign investment available to a low-budget mayoral candidate costs nothing — showing up to your city commission meeting tonight and building one more relationship in the community that will eventually elect you."</p>
+</div>
+
+<h2 id="h3">How to Fundraise When You Have No Existing Donor Network</h2>
+
+<p>Every successful fundraising campaign starts with the same first step: asking people who already know and believe in you to make the first donations. Your personal network — family, friends, professional colleagues, business relationships — is your initial donor pool. These people are not giving to a political candidate. They are giving to a person they trust.</p>
+
+<p>The second tier of fundraising for a low-budget campaign is the civic network you have built over years of community engagement. The neighborhood association president who has worked alongside you for four years. The nonprofit director whose board you served on. The business owner whose permitting challenge you helped navigate. These people have a personal stake in your success — and that personal stake translates into campaign contributions when you ask.</p>
+
+<p>According to <a href="https://www.nlc.org/resource/cities-101-local-election-financing/" target="_blank" rel="noopener">the National League of Cities</a>, small-dollar donors — those giving $100 or less — account for a growing share of local campaign financing and are particularly responsive to candidates they have direct personal relationships with. The candidate who has invested in community relationships for a decade has a more sustainable fundraising base than the candidate who starts from zero six months before the election.</p>
+
+<h2 id="h4">The Long Game as the Cheapest Campaign Strategy</h2>
+
+<p>The most cost-effective strategy for running for mayor with limited money is the one that sounds the least like a campaign strategy: spend years building genuine community trust before you spend a dollar on advertising. Every year of authentic civic engagement reduces the amount of paid outreach you need to introduce yourself to voters who would otherwise not know you.</p>
+
+<p>A candidate with eight years of visible civic service, an active weekly newsletter with two thousand subscribers, three endorsements from respected neighborhood association presidents, and a genuine volunteer team of fifty people built from years of relationships is competitive against a well-funded opponent in ways that a fresh candidate with a hundred thousand dollars simply is not. <a href="https://howtobecomemayor.com/how-to-become-mayor-with-no-experience">Becoming mayor with no experience</a> and becoming mayor with no money are solved by the same strategy. <a href="https://howtobecomemayor.com" onclick="openPopup();return false;">How To Become Mayor</a> is the program that gives you that strategy — and your city&rsquo;s exclusive seat may still be available.</p>
+</div>
+<div class="paa"><div class="paa-label">People Also Ask</div><div class="paa-item"><div class="paa-q">What is the minimum amount of money needed to run a mayoral campaign?</div><div class="paa-a">For a city of 50,000 to 150,000 residents, a bare-minimum serious campaign budget is approximately $25,000 to $75,000. For larger cities the floor is higher. Below these thresholds a campaign lacks the operational capacity to be competitive. <a href="https://howtobecomemayor.com/how-much-does-it-cost-to-run-for-mayor">The full cost to run for mayor</a> depends significantly on city size and the strength of opposition.</div></div><div class="paa-item"><div class="paa-q">Can I run for mayor using only volunteer labor?</div><div class="paa-a">Yes — for most campaign functions. Volunteer door knockers, phone bankers, social media managers, event coordinators, and even a volunteer campaign manager are all realistic for a candidate with strong community relationships built over years. The one function that cannot be purely volunteer is legal and financial compliance — you will need at minimum a treasurer who understands campaign finance law. <a href="https://howtobecomemayor.com/how-to-fundraise-for-a-local-political-campaign">Fundraising for a local political campaign</a> also benefits from at least one person with experience.</div></div><div class="paa-item"><div class="paa-q">How do small-city mayoral campaigns raise money?</div><div class="paa-a">Through personal networks first, civic networks second, and small-dollar fundraising events third. A house party where fifty supporters each write a $100 check raises $5,000 in an evening. A community event where your neighborhood association endorses you publicly generates momentum that produces donations from supporters who were watching. Personal relationships are the engine of small-city campaign fundraising.</div></div><div class="paa-item"><div class="paa-q">What is the campaign finance limit for local elections?</div><div class="paa-a">Campaign finance limits vary by state and city. Many states have no contribution limits for local races. Others cap individual contributions at $500, $1,000, or $2,500 per donor per election. Check your city clerk's website and your state's campaign finance laws before accepting any contributions. <a href="https://howtobecomemayor.com/requirements-to-run-for-mayor">The requirements to run for mayor</a> include campaign finance compliance from day one.</div></div><div class="paa-item"><div class="paa-q">Can I loan my own campaign money to myself?</div><div class="paa-a">Yes — candidate self-loans are legal in most jurisdictions, subject to reporting requirements. Candidates can loan their own campaign money and later repay themselves from campaign contributions if the campaign raises enough funds. Self-loans must be reported on campaign finance disclosures and are subject to the same contribution limits as donor contributions in states that have individual limits.</div></div><div class="paa-item"><div class="paa-q">What free tools exist for running a local political campaign?</div><div class="paa-a">Free and low-cost tools include: NationBuilder or Action Network for voter outreach, Canva for campaign graphics, Mailchimp for email newsletters, Google Workspace for campaign organization, social media platforms for free content distribution, and VAN (Voter Activation Network) at subsidized rates through party affiliates in partisan cities. <a href="https://howtobecomemayor.com/how-to-campaign-for-mayor-on-a-small-budget">Campaigning on a small budget</a> is a skill that compounds these tools with strong volunteer capacity.</div></div><div class="paa-item"><div class="paa-q">How do I fundraise from people I already know?</div><div class="paa-a">Ask directly and specifically. "I am running for mayor of our city and I need your support. Will you contribute $250 to my campaign?" is more effective than a general appeal. People who know you respond to direct, personal asks from someone they trust. Start with your twenty closest relationships and ask each one personally before you send any mass fundraising communications. <a href="https://howtobecomemayor.com/how-to-get-endorsements-for-a-local-election">Endorsements from trusted community leaders</a> also catalyze fundraising from their networks.</div></div><div class="paa-item"><div class="paa-q">What is a political action committee and do I need one?</div><div class="paa-a">A political action committee (PAC) is an organization that raises and spends money to elect or defeat candidates. As a candidate, you do not need a PAC — you need a campaign committee. PACs are separate entities that can support candidates but are not controlled by them. For a first-time local candidate, a PAC is not necessary and adds complexity. Focus on your campaign committee and its compliance.</div></div></div>
+<div class="author-bio">
+  <div class="author-avatar">JB</div>
+  <div>
+    <div class="author-name">Jim Blackburn</div>
+    <div class="author-role">Creator of Character Branding&reg; &nbsp;&middot;&nbsp; Founder, HowToBecomeMayor.com &nbsp;&middot;&nbsp; Fort Lauderdale Mayor Project 2026&ndash;2040</div>
+    <div class="author-desc">Jim Blackburn is a Fort Lauderdale entrepreneur and civic leader with zero political experience who made a public 14-year commitment to become Mayor of Fort Lauderdale by November 2040. He is the creator of Character Branding&reg; and the founder of the only national coaching community for future mayors in America.</div>
+  </div>
+</div>
+</article></div>
+<aside class="sidebar">
+  <div><div class="sidebar-section-label">Is Your City Available?</div>
+  <div class="sidebar-card"><h4>One seat per city. Check yours now.</h4><p>19,495 cities. One exclusive seat each. Your competitor may already be looking.</p><a class="sidebar-btn" href="#" onclick="openPopup();return false;">Check Your City &rarr;</a></div></div>
+  <div class="sidebar-toc"><div class="sidebar-section-label">In This Article</div><ul><li onclick="document.getElementById('h1').scrollIntoView({behavior:'smooth'})">What campaign money actually buys</li><li onclick="document.getElementById('h2').scrollIntoView({behavior:'smooth'})">The minimum budget for a competitive campaign</li><li onclick="document.getElementById('h3').scrollIntoView({behavior:'smooth'})">How to fundraise with no donor network</li><li onclick="document.getElementById('h4').scrollIntoView({behavior:'smooth'})">The long game as the cheapest strategy</li></ul></div>
+  <div><div class="sidebar-section-label">The Complete Course</div>
+  <div class="sidebar-card"><h4>100+ pages. The full system.</h4><p>Every stage of the journey. Included with every city seat.</p><a class="sidebar-btn sidebar-btn-ghost" href="#" onclick="openPopup();return false;">Learn More &rarr;</a></div></div>
+</aside>
+</div>
+<div class="related"><div class="related-inner">
+  <div class="related-eyebrow">Keep Reading</div>
+  <div class="related-heading">More from How To Become Mayor</div>
+  <div class="related-grid"><a class="related-card" href="https://howtobecomemayor.com/how-much-does-it-cost-to-run-for-mayor"><div class="related-card-cat">The Campaign</div><div class="related-card-title">How Much Does It Cost to Run for Mayor?</div><div class="related-card-time">8 min read</div></a><a class="related-card" href="https://howtobecomemayor.com/how-to-campaign-for-mayor-on-a-small-budget"><div class="related-card-cat">The Campaign</div><div class="related-card-title">How to Campaign for Mayor on a Small Budget</div><div class="related-card-time">8 min read</div></a><a class="related-card" href="https://howtobecomemayor.com/how-to-fundraise-for-a-local-political-campaign"><div class="related-card-cat">The Campaign</div><div class="related-card-title">How to Fundraise for a Local Political Campaign</div><div class="related-card-time">8 min read</div></a></div>
+</div></div>
+<div id="footer-placeholder"></div>
+<div class="sticky-bar" id="stickyBar"><div class="sticky-bar-text"><strong>Your city&rsquo;s seat may still be available.</strong> Check before someone else does.</div><button class="sticky-bar-btn" onclick="openPopup()">Check My City &rarr;</button><button class="sticky-close" onclick="document.getElementById('stickyBar').classList.remove('show')">&times;</button></div>
+<div class="popup-overlay" id="popupOverlay" onclick="if(event.target===this)closePopup()"><div class="popup-box"><button class="popup-x" onclick="closePopup()">&times;</button><div class="popup-eye">One Seat Per City</div><h3>Check if your city is still available.</h3><p>Enter your details. We respond within 24 hours. No commitment required.</p><div class="popup-form" id="popupForm"><input class="popup-input" type="text" id="popName" placeholder="Your first name"/><input class="popup-input" type="email" id="popEmail" placeholder="Your email address"/><input class="popup-input" type="text" id="popCity" placeholder="Your city and state (e.g. Denver, CO)"/><button class="popup-submit" onclick="submitPopup()">Check My City&rsquo;s Availability &rarr;</button><p class="popup-fine">No credit card. No commitment. One decision.</p></div></div></div>
+<script>
+let dismissed=false;
+window.addEventListener('scroll',function(){if(dismissed)return;if(window.scrollY/(document.body.scrollHeight-window.innerHeight)>0.3)document.getElementById('stickyBar').classList.add('show');});
+function openPopup(){document.getElementById('popupOverlay').classList.add('show');document.body.style.overflow='hidden';}
+function closePopup(){document.getElementById('popupOverlay').classList.remove('show');document.body.style.overflow='';}
+function submitPopup(){const n=document.getElementById('popName').value.trim(),e=document.getElementById('popEmail').value.trim(),c=document.getElementById('popCity').value.trim();if(!n||!e||!c){alert('Please fill in all three fields.');return;}document.getElementById('popupForm').innerHTML=`<div style="text-align:center;padding:20px 0;"><div style="font-size:48px;color:var(--gold);margin-bottom:14px;">&#10003;</div><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:10px;">You're on the list.</div><div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;">We'll contact you within 24 hours about <strong style="color:white;">${c}</strong>.</div></div>`;}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup();});
+</script>
+<script src="/js/components.js"></script>
+</body></html>

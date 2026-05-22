@@ -1,0 +1,178 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/apply",
+      "destination": "/application.html"
+    },
+    {
+      "source": "/how-to-become-mayor-with-no-experience",
+      "destination": "/how-to-become-mayor-with-no-experience.html"
+    },
+    {
+      "source": "/first-step-to-becoming-mayor",
+      "destination": "/first-step-to-becoming-mayor.html"
+    },
+    {
+      "source": "/how-long-does-it-take-to-become-mayor",
+      "destination": "/how-long-does-it-take-to-become-mayor.html"
+    },
+    {
+      "source": "/requirements-to-run-for-mayor",
+      "destination": "/requirements-to-run-for-mayor.html"
+    },
+    {
+      "source": "/how-to-get-involved-in-local-government",
+      "destination": "/how-to-get-involved-in-local-government.html"
+    },
+    {
+      "source": "/what-does-a-mayor-do",
+      "destination": "/what-does-a-mayor-do.html"
+    },
+    {
+      "source": "/how-to-run-for-mayor-with-no-money",
+      "destination": "/how-to-run-for-mayor-with-no-money.html"
+    },
+    {
+      "source": "/how-to-start-a-political-career",
+      "destination": "/how-to-start-a-political-career.html"
+    },
+    {
+      "source": "/difference-between-mayor-and-city-manager",
+      "destination": "/difference-between-mayor-and-city-manager.html"
+    },
+    {
+      "source": "/is-it-too-late-to-become-mayor",
+      "destination": "/is-it-too-late-to-become-mayor.html"
+    },
+    {
+      "source": "/how-to-build-credibility-to-run-for-office",
+      "destination": "/how-to-build-credibility-to-run-for-office.html"
+    },
+    {
+      "source": "/how-to-become-known-in-your-community",
+      "destination": "/how-to-become-known-in-your-community.html"
+    },
+    {
+      "source": "/civic-organizations-for-political-credibility",
+      "destination": "/civic-organizations-for-political-credibility.html"
+    },
+    {
+      "source": "/how-to-join-a-city-advisory-board",
+      "destination": "/how-to-join-a-city-advisory-board.html"
+    },
+    {
+      "source": "/how-to-get-people-to-trust-you-as-a-candidate",
+      "destination": "/how-to-get-people-to-trust-you-as-a-candidate.html"
+    },
+    {
+      "source": "/personal-branding-for-politicians",
+      "destination": "/personal-branding-for-politicians.html"
+    },
+    {
+      "source": "/how-politicians-build-trust-with-voters",
+      "destination": "/how-politicians-build-trust-with-voters.html"
+    },
+    {
+      "source": "/how-to-become-a-community-leader",
+      "destination": "/how-to-become-a-community-leader.html"
+    },
+    {
+      "source": "/should-i-run-for-city-council-before-mayor",
+      "destination": "/should-i-run-for-city-council-before-mayor.html"
+    },
+    {
+      "source": "/how-much-does-it-cost-to-run-for-mayor",
+      "destination": "/how-much-does-it-cost-to-run-for-mayor.html"
+    },
+    {
+      "source": "/how-to-fundraise-for-a-local-political-campaign",
+      "destination": "/how-to-fundraise-for-a-local-political-campaign.html"
+    },
+    {
+      "source": "/how-to-get-endorsements-for-a-local-election",
+      "destination": "/how-to-get-endorsements-for-a-local-election.html"
+    },
+    {
+      "source": "/how-to-win-a-local-election-with-no-name-recognition",
+      "destination": "/how-to-win-a-local-election-with-no-name-recognition.html"
+    },
+    {
+      "source": "/how-to-get-your-name-on-the-ballot",
+      "destination": "/how-to-get-your-name-on-the-ballot.html"
+    },
+    {
+      "source": "/how-to-knock-on-doors-for-a-campaign",
+      "destination": "/how-to-knock-on-doors-for-a-campaign.html"
+    },
+    {
+      "source": "/how-to-campaign-for-mayor-on-a-small-budget",
+      "destination": "/how-to-campaign-for-mayor-on-a-small-budget.html"
+    },
+    {
+      "source": "/how-many-votes-to-win-a-mayoral-election",
+      "destination": "/how-many-votes-to-win-a-mayoral-election.html"
+    },
+    {
+      "source": "/how-do-local-elections-work",
+      "destination": "/how-do-local-elections-work.html"
+    },
+    {
+      "source": "/what-issues-matter-most-in-a-mayoral-election",
+      "destination": "/what-issues-matter-most-in-a-mayoral-election.html"
+    },
+    {
+      "source": "/how-to-identify-important-issues-in-your-city",
+      "destination": "/how-to-identify-important-issues-in-your-city.html"
+    },
+    {
+      "source": "/how-neighborhood-associations-influence-elections",
+      "destination": "/how-neighborhood-associations-influence-elections.html"
+    },
+    {
+      "source": "/most-important-people-to-know-in-local-politics",
+      "destination": "/most-important-people-to-know-in-local-politics.html"
+    },
+    {
+      "source": "/real-power-structure-in-a-city",
+      "destination": "/real-power-structure-in-a-city.html"
+    },
+    {
+      "source": "/how-to-build-a-political-coalition",
+      "destination": "/how-to-build-a-political-coalition.html"
+    },
+    {
+      "source": "/how-to-become-mayor-as-a-political-outsider",
+      "destination": "/how-to-become-mayor-as-a-political-outsider.html"
+    },
+    {
+      "source": "/can-a-businessperson-become-mayor",
+      "destination": "/can-a-businessperson-become-mayor.html"
+    },
+    {
+      "source": "/how-to-compete-against-a-career-politician",
+      "destination": "/how-to-compete-against-a-career-politician.html"
+    },
+    {
+      "source": "/advantages-of-an-outsider-candidate",
+      "destination": "/advantages-of-an-outsider-candidate.html"
+    },
+    {
+      "source": "/how-to-run-for-mayor-without-a-political-party",
+      "destination": "/how-to-run-for-mayor-without-a-political-party.html"
+    },
+    {
+      "source": "/program-for-learning-how-to-become-mayor",
+      "destination": "/program-for-learning-how-to-become-mayor.html"
+    }
+  ]
+}

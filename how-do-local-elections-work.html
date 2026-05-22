@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Do Local Elections Work? &mdash; HowToBecomeMayor.com</title>
+<meta name="description" content="How do local elections work? The rules vary by city and state — but understanding them is foundational preparation for any future mayor. Here is the complete honest guide.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0a1628;
+  --navy-mid: #1a2d4a;
+  --navy-light: #243d5c;
+  --gold: #c9a84c;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --text-body: #333333;
+  --border-gold: rgba(201,168,76,0.3);
+  --border-dark: rgba(10,22,40,0.12);
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); }
+
+/* NAV */
+.nav { background: var(--navy); border-bottom: 1px solid var(--border-gold); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: white; text-decoration: none; line-height: 1.2; }
+.nav-logo span { display: block; font-size: 10px; font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; }
+.nav-cta { background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 22px; text-decoration: none; white-space: nowrap; }
+
+/* BREADCRUMB */
+.breadcrumb { background: var(--navy-mid); padding: 10px 40px; font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; }
+.breadcrumb a { color: var(--gold); text-decoration: none; }
+
+/* HEADER — dark navy */
+.article-header { background: var(--navy); padding: 56px 40px 48px; }
+.article-header-inner { max-width: 760px; }
+.article-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.article-eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
+.article-eyebrow-text { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.article-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 5vw, 50px); font-weight: 700; color: white; line-height: 1.08; margin-bottom: 28px; }
+.article-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.meta-item { font-size: 13px; color: rgba(255,255,255,0.45); }
+.meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+.meta-readtime { display: flex; align-items: center; gap: 6px; background: rgba(201,168,76,0.1); border: 1px solid var(--border-gold); padding: 5px 12px; font-size: 11px; color: var(--gold); letter-spacing: 0.08em; }
+.meta-readtime svg { width: 12px; height: 12px; stroke: var(--gold); fill: none; stroke-width: 2; }
+
+/* LAYOUT */
+.layout { display: grid; grid-template-columns: 1fr 272px; max-width: 1040px; margin: 0 auto; background: var(--white); }
+
+/* ARTICLE BODY — pure white, black text, high contrast */
+.body-wrap { background: var(--white); padding: 48px 48px 64px; min-width: 0; }
+
+.article-lede { font-family: 'Cormorant Garamond', serif; font-size: 21px; color: var(--navy); line-height: 1.65; margin-bottom: 32px; border-left: 3px solid var(--gold); padding-left: 22px; font-weight: 500; }
+
+.article-content p { font-size: 17px; line-height: 1.9; color: #333; margin-bottom: 22px; font-family: 'Cormorant Garamond', serif; }
+.article-content p strong { color: #1a1a1a; font-weight: 600; }
+.article-content a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.article-content a:hover { color: var(--gold); }
+
+.article-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--navy); font-weight: 700; line-height: 1.2; margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border-dark); }
+.article-content h3 { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; margin: 32px 0 12px; }
+
+/* INLINE CTA */
+.inline-cta { background: var(--navy); padding: 28px 32px; margin: 36px 0; border-left: 4px solid var(--gold); }
+.inline-cta-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.inline-cta p { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: white; line-height: 1.55; margin-bottom: 18px; font-style: italic; }
+.inline-cta a { display: inline-block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 11px 24px; text-decoration: none; }
+
+/* PULL QUOTE */
+.pull-quote { border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); padding: 28px 0; margin: 36px 0; }
+.pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--navy); line-height: 1.5; font-style: italic; font-weight: 600; }
+
+/* AUTHOR BIO */
+.author-bio { border-top: 2px solid var(--border-dark); padding-top: 36px; margin-top: 44px; display: flex; gap: 20px; align-items: flex-start; }
+.author-avatar { width: 52px; height: 52px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--gold); font-weight: 700; }
+.author-name { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 3px; }
+.author-role { font-size: 11px; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 8px; }
+.author-desc { font-size: 13px; color: #555; line-height: 1.7; }
+
+/* SIDEBAR — dark navy */
+.sidebar { background: var(--navy-mid); padding: 28px 20px; display: flex; flex-direction: column; gap: 20px; border-left: 1px solid var(--border-gold); }
+.sidebar-section-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.sidebar-card { background: rgba(255,255,255,0.04); border: 1px solid var(--border-gold); padding: 20px 18px; }
+.sidebar-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: white; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
+.sidebar-card p { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 14px; }
+.sidebar-btn { display: block; background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 14px; text-align: center; text-decoration: none; }
+.sidebar-btn-ghost { background: rgba(201,168,76,0.08); color: var(--gold); border: 1px solid var(--border-gold); }
+.sidebar-toc { border: 1px solid var(--border-gold); padding: 18px; }
+.sidebar-toc ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.sidebar-toc li { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.4; padding-left: 10px; border-left: 2px solid rgba(201,168,76,0.2); cursor: pointer; transition: all 0.2s; }
+.sidebar-toc li:hover { color: var(--gold); border-left-color: var(--gold); }
+
+/* RELATED */
+.related { background: var(--navy); padding: 56px 40px; }
+.related-inner { max-width: 1040px; margin: 0 auto; }
+.related-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.related-heading { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: white; font-weight: 700; margin-bottom: 28px; }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-gold); border: 1px solid var(--border-gold); }
+.related-card { background: var(--navy-mid); padding: 24px 20px; text-decoration: none; display: block; transition: background 0.2s; }
+.related-card:hover { background: var(--navy-light); }
+.related-card-cat { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.related-card-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: white; font-weight: 600; line-height: 1.35; margin-bottom: 10px; }
+.related-card-time { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+/* STICKY BAR */
+.sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--navy); border-top: 2px solid var(--gold); padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 14px; z-index: 200; transform: translateY(102%); transition: transform 0.35s ease; }
+.sticky-bar.show { transform: translateY(0); }
+.sticky-bar-text { font-size: 14px; color: rgba(255,255,255,0.8); }
+.sticky-bar-text strong { color: white; }
+.sticky-bar-btn { background: var(--gold); color: var(--navy); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 11px 22px; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap; flex-shrink: 0; }
+.sticky-close { background: none; border: none; color: rgba(255,255,255,0.3); font-size: 22px; cursor: pointer; padding: 0 4px; flex-shrink: 0; line-height: 1; }
+
+/* POPUP */
+.popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 300; display: none; align-items: center; justify-content: center; padding: 20px; }
+.popup-overlay.show { display: flex; }
+.popup-box { background: var(--navy); border: 1px solid var(--border-gold); padding: 40px 32px; max-width: 440px; width: 100%; position: relative; animation: up 0.22s ease; }
+@keyframes up { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.popup-x { position: absolute; top: 12px; right: 16px; background: none; border: none; color: rgba(255,255,255,0.3); font-size: 24px; cursor: pointer; line-height: 1; }
+.popup-eye { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.popup-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: white; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+.popup-box > p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 22px; }
+.popup-form { display: flex; flex-direction: column; gap: 12px; }
+.popup-input { padding: 13px 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-gold); color: white; font-size: 14px; font-family: 'DM Sans', sans-serif; outline: none; }
+.popup-input::placeholder { color: rgba(255,255,255,0.25); }
+.popup-input:focus { border-color: var(--gold); }
+.popup-submit { padding: 14px; background: var(--gold); color: var(--navy); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.popup-fine { font-size: 11px; color: rgba(255,255,255,0.2); text-align: center; margin-top: 4px; }
+
+/* FOOTER */
+.footer { background: var(--navy); border-top: 1px solid var(--border-gold); padding: 32px 40px; color: rgba(255,255,255,0.3); font-size: 12px; line-height: 1.8; }
+.footer-name { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: white; margin-bottom: 6px; }
+.footer a { color: var(--gold); text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 820px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { border-left: none; border-top: 1px solid var(--border-gold); flex-direction: row; flex-wrap: wrap; padding: 24px 20px; }
+  .sidebar > div { flex: 1; min-width: 220px; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 580px) {
+  .nav { padding: 0 16px; }
+  .breadcrumb { padding: 10px 16px; }
+  .article-header { padding: 36px 16px 32px; }
+  .article-title { font-size: 28px; }
+  .body-wrap { padding: 28px 16px 48px; }
+  .article-content p { font-size: 16px; }
+  .article-lede { font-size: 18px; }
+  .article-content h2 { font-size: 22px; }
+  .sticky-bar { padding: 10px 16px; }
+  .sticky-bar-text { font-size: 12px; }
+  .related { padding: 36px 16px; }
+  .footer { padding: 24px 16px; }
+  .popup-box { padding: 32px 20px; }
+}
+
+.paa { margin-top: 48px; padding-top: 40px; border-top: 2px solid rgba(10,22,40,0.12); }
+.paa-label { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 28px; padding-bottom: 12px; border-bottom: 1px solid rgba(10,22,40,0.08); }
+.paa-item { padding: 22px 0; border-bottom: 1px solid rgba(10,22,40,0.08); }
+.paa-item:last-child { border-bottom: none; }
+.paa-q { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.3; padding-left: 16px; border-left: 3px solid var(--gold); }
+.paa-a { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: #444; line-height: 1.8; padding-left: 16px; }
+.paa-a a { color: var(--navy); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="breadcrumb"><a href="https://howtobecomemayor.com">Home</a> &nbsp;&rsaquo;&nbsp; <a href="https://howtobecomemayor.com/blog">Blog</a> &nbsp;&rsaquo;&nbsp; How Do Local Elections Work?</div>
+<div class="article-header"><div class="article-header-inner">
+  <div class="article-eyebrow"><div class="article-eyebrow-line"></div><div class="article-eyebrow-text">Strategy</div></div>
+  <h1 class="article-title">How Do Local Elections Work?</h1>
+  <div class="article-meta"><span class="meta-item">Jim Blackburn</span><span class="meta-dot"></span><span class="meta-item">March 2026</span><span class="meta-dot"></span><span class="meta-readtime"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8 min read</span></div>
+</div></div>
+<div class="layout">
+<div class="body-wrap"><article>
+<p class="article-lede">How do local elections work? The mechanics are more varied and more complex than most citizens realize — and more accessible to first-time candidates than state or national elections. Understanding your city&rsquo;s specific rules is foundational preparation for becoming mayor.</p>
+<div class="article-content">
+<p>How do local elections work? The mechanics of local elections in the United States are more varied and more complex than most citizens realize — and more directly accessible to first-time candidates than state or national elections. Understanding how local elections work in your specific city and state is foundational preparation for any future mayor. The rules that govern who can run, when elections are held, how votes are counted, and how winners are determined vary significantly from city to city and state to state.</p>
+
+<p>The first and most important thing to understand about how local elections work is that local election administration is primarily a state and county function. The federal government sets minimal baseline standards through the Help America Vote Act and other federal election laws, but the detailed rules — filing deadlines, candidate eligibility requirements, voting formats, runoff thresholds — are determined at the state and local level. <a href="https://howtobecomemayor.com/requirements-to-run-for-mayor">The requirements to run for mayor</a> in your city are therefore specific to your jurisdiction.</p>
+
+<p>According to <a href="https://www.eac.gov/voters/register-and-vote-in-your-state" target="_blank" rel="noopener">the U.S. Election Assistance Commission</a>, there are over 10,000 distinct election jurisdictions in the United States — each with its own set of rules, procedures, and administrative structures. This complexity makes it essential for any serious mayoral candidate to research their specific jurisdiction&rsquo;s election rules rather than relying on general guidance.</p>
+
+<h2 id="h1">Partisan vs. Nonpartisan Local Elections</h2>
+
+<p>The most significant structural distinction in how local elections work is whether the race is partisan or nonpartisan. Approximately 75 percent of American city elections are nonpartisan — meaning candidates do not run under party labels, party affiliation does not appear on the ballot, and no party primary is required. In nonpartisan cities, any eligible resident who meets the filing requirements can run for mayor without party involvement.</p>
+
+<p>In the remaining 25 percent of cities with partisan local elections — more common in larger cities and in certain states — candidates must either win a party primary to appear on the general election ballot or gather enough petition signatures to qualify as an independent candidate. Partisan local elections introduce party infrastructure, party donor networks, and party voter mobilization into the race in ways that can significantly advantage candidates with established party relationships.</p>
+
+<p>For an outsider candidate pursuing the path outlined in <a href="https://howtobecomemayor.com" onclick="openPopup();return false;">How To Become Mayor</a>, nonpartisan local elections are structurally more accessible — because they remove the party primary as a barrier to entry and allow community trust to be the primary electoral currency. Knowing whether your city uses partisan or nonpartisan elections is one of the first research tasks for any future mayoral candidate. <a href="https://howtobecomemayor.com/how-to-run-for-mayor-without-a-political-party">How to run for mayor without a political party</a> covers the specific strategy for both election types.</p>
+
+<div class="inline-cta">
+  <div class="inline-cta-label">Understand the Rules Before You Run</div>
+  <p>"How To Become Mayor prepares future mayors for the specific election structure of their city — so that the rules of the game are fully understood before the campaign begins."</p>
+  <a href="https://howtobecomemayor.com" onclick="openPopup();return false;">Check If Your City&rsquo;s Seat Is Available &rarr;</a>
+</div>
+
+<h2 id="h2">Election Timing — Why Local Elections Are Often in Odd Years</h2>
+
+<p>Most American cities hold their local elections in odd-numbered years — separate from state and federal elections that occur in even-numbered years. This scheduling is deliberate and has significant consequences for both turnout and electoral strategy.</p>
+
+<p>The original rationale for separating local elections from state and federal elections was to insulate local governance from national political dynamics. Proponents argued that mayors should be chosen based on local issues and local leadership qualities — not swept into or out of office based on national partisan waves.</p>
+
+<p>The practical consequence of off-year local elections is dramatically lower voter turnout — typically 15 to 27 percent of registered voters compared to 50 to 60 percent in presidential election years. This lower turnout environment has specific strategic implications covered in the post on <a href="https://howtobecomemayor.com/how-many-votes-to-win-a-mayoral-election">how many votes it takes to win a mayoral election</a>.</p>
+
+<p>According to <a href="https://www.nlc.org/resource/cities-101-elections/" target="_blank" rel="noopener">the National League of Cities</a>, some cities have moved their local elections to even-year ballots to increase voter participation — with mixed results. Higher turnout makes local races more competitive and more expensive because the voter base that needs to be reached is broader. Check your city&rsquo;s election calendar carefully before planning your campaign timeline.</p>
+
+<div class="pull-quote">
+  <p>"Understanding the specific rules of how local elections work in your city — not general knowledge but your city&rsquo;s specific charter, filing deadlines, and election format — is the first concrete research task for any serious future mayor."</p>
+</div>
+
+<h2 id="h3">The Primary, General, and Runoff Structure</h2>
+
+<p>Local election structures vary significantly in how they handle multi-candidate races. The three most common formats are the primary-plus-general structure, the top-two primary, and the single general election with runoff provisions.</p>
+
+<p><strong>Primary plus general.</strong> In partisan local elections, a party primary narrows each party&rsquo;s field to a single candidate, who then competes in the general election. Independent candidates may qualify through petition. This structure is common in larger partisan cities.</p>
+
+<p><strong>Top-two primary.</strong> All candidates, regardless of party, appear on a single primary ballot. The top two vote-getters advance to a general election runoff regardless of party. This structure is increasingly common in nonpartisan cities that want to ensure a majority winner in the general election. California cities use this format extensively.</p>
+
+<p><strong>Single general with runoff.</strong> All candidates appear on a single general election ballot. If no candidate receives a majority, the top two advance to a separate runoff election. This is the most common structure for mid-size nonpartisan American cities.</p>
+
+<p>Each structure has different strategic implications for how you approach the campaign. In a top-two or runoff system, the first election is about making the cut — finishing in the top two — rather than winning outright. In a single-round plurality system, the goal is simply to get more votes than everyone else, even if that means winning with a minority of total votes cast.</p>
+
+<h2 id="h4">How Absentee and Early Voting Affects Local Elections</h2>
+
+<p>Absentee and early voting have become increasingly significant in local elections — and their strategic implications are often underestimated by first-time candidates. In many states, 30 to 50 percent of votes in local elections are cast before election day through absentee mail ballots or in-person early voting.</p>
+
+<p>This means that a significant portion of your vote target is decided before your get-out-the-vote operations in the final days of the campaign. Voters who cast absentee ballots early in the voting period are making their decisions based on information and impressions formed well before election day — which reinforces the strategic value of the years of pre-campaign community engagement that builds deep voter impressions long before the ballot is cast.</p>
+
+<p>Early voting also means that your canvassing operations need to begin earlier and target absentee requesters specifically. A voter who has already submitted their absentee ballot should not be a priority for door-knocking resources. A voter who has requested an absentee ballot but not yet returned it is an urgent priority — they are actively in the process of deciding and a quality personal contact can still influence their decision. <a href="https://howtobecomemayor.com" onclick="openPopup();return false;">How To Become Mayor</a> prepares you for the full complexity of how local elections work — and your city&rsquo;s exclusive seat may still be available.</p>
+
+<p>According to <a href="https://www.ballotpedia.org/Absentee_and_early_voting" target="_blank" rel="noopener">Ballotpedia&rsquo;s analysis of absentee and early voting trends</a>, the share of votes cast before election day has increased significantly in recent election cycles — making pre-election-day voter contact increasingly important in local campaigns.</p>
+</div>
+<div class="paa"><div class="paa-label">People Also Ask</div><div class="paa-item"><div class="paa-q">What is the difference between a partisan and nonpartisan local election?</div><div class="paa-a">In a partisan local election, candidates run under party labels and party primaries determine which candidates advance to the general election. In a nonpartisan local election — which applies to approximately 75% of American cities — no party labels appear on the ballot and any eligible resident can run without party involvement. <a href="https://howtobecomemayor.com/how-to-run-for-mayor-without-a-political-party">How to run for mayor without a political party</a> covers the strategic differences.</div></div><div class="paa-item"><div class="paa-q">How are local election dates set and why are they often in odd years?</div><div class="paa-a">Local election dates are set by state law and city charter — most American cities hold local elections in odd-numbered years, separate from state and federal elections, to insulate local governance from national partisan dynamics. According to the National League of Cities, this scheduling also produces lower voter turnout, which has significant strategic implications. Check your city&rsquo;s specific election calendar on the city clerk&rsquo;s website.</div></div><div class="paa-item"><div class="paa-q">What is a primary election for a mayoral race?</div><div class="paa-a">In partisan local elections, a primary election narrows each party&rsquo;s field to a single general election candidate. In top-two nonpartisan systems, a primary election narrows the field to the two highest vote-getters regardless of party. In many nonpartisan cities, there is no primary — just a general election with a runoff if no candidate receives a majority. <a href="https://howtobecomemayor.com/requirements-to-run-for-mayor">The requirements to run for mayor</a> in your city determine which format applies.</div></div><div class="paa-item"><div class="paa-q">How does early voting affect local election outcomes?</div><div class="paa-a">Significantly — in many states, 30 to 50% of votes are cast before election day through absentee mail or in-person early voting. This means a large portion of your vote target is decided before get-out-the-vote operations in the final days. Canvassing operations need to begin earlier, and absentee ballot requesters who have not yet returned ballots are urgent contact priorities. <a href="https://howtobecomemayor.com/how-many-votes-to-win-a-mayoral-election">Your vote target calculation</a> should account for how early voting affects the timing of your outreach.</div></div><div class="paa-item"><div class="paa-q">What is same-day voter registration and does my state have it?</div><div class="paa-a">Same-day voter registration allows voters to register and vote in the same election without meeting a registration deadline. As of 2026, approximately 21 states plus D.C. offer same-day registration. Check <a href="https://www.eac.gov/voters/register-and-vote-in-your-state" target="_blank" rel="noopener">the U.S. Election Assistance Commission</a> for your state&rsquo;s specific registration rules.</div></div><div class="paa-item"><div class="paa-q">How are local election results certified?</div><div class="paa-a">Local election results are certified by the county board of elections or equivalent authority, typically within two to four weeks after election day after absentee and provisional ballots are counted. Official certification is required before winners can take office. Results reported on election night are unofficial until certification is complete.</div></div><div class="paa-item"><div class="paa-q">What is a recount and when does one happen in a local race?</div><div class="paa-a">A recount is a re-tabulation of ballots when an election result is very close. Most states have automatic recount triggers — typically when the margin of victory falls within 0.5% to 1% of total votes cast. Candidates can also request recounts, sometimes requiring payment of a fee. Recounts rarely change outcomes by more than a few dozen votes in well-administered elections.</div></div><div class="paa-item"><div class="paa-q">How do absentee ballots affect local election outcomes?</div><div class="paa-a">Absentee voters in local elections tend to be older, more engaged, and more politically consistent than in-person voters — which means absentee ballot trends are often predictive of final outcomes. Candidates with strong support among high-frequency voters (those who vote in every election) often perform better in absentee returns than their final totals would suggest, because occasional voters are more likely to vote in person. <a href="https://howtobecomemayor.com/how-many-votes-to-win-a-mayoral-election">Understanding your vote target</a> requires accounting for the absentee share of expected turnout.</div></div></div>
+<div class="author-bio">
+  <div class="author-avatar">JB</div>
+  <div>
+    <div class="author-name">Jim Blackburn</div>
+    <div class="author-role">Creator of Character Branding&reg; &nbsp;&middot;&nbsp; Founder, HowToBecomeMayor.com &nbsp;&middot;&nbsp; Fort Lauderdale Mayor Project 2026&ndash;2040</div>
+    <div class="author-desc">Jim Blackburn is a Fort Lauderdale entrepreneur and civic leader with zero political experience who made a public 14-year commitment to become Mayor of Fort Lauderdale by November 2040. He is the creator of Character Branding&reg; and the founder of the only national coaching community for future mayors in America.</div>
+  </div>
+</div>
+</article></div>
+<aside class="sidebar">
+  <div><div class="sidebar-section-label">Is Your City Available?</div>
+  <div class="sidebar-card"><h4>One seat per city. Check yours now.</h4><p>19,495 cities. One exclusive seat each. Your competitor may already be looking.</p><a class="sidebar-btn" href="#" onclick="openPopup();return false;">Check Your City &rarr;</a></div></div>
+  <div class="sidebar-toc"><div class="sidebar-section-label">In This Article</div><ul><li onclick="document.getElementById('h1').scrollIntoView({behavior:'smooth'})">Partisan vs. nonpartisan elections</li><li onclick="document.getElementById('h2').scrollIntoView({behavior:'smooth'})">Why local elections are often in odd years</li><li onclick="document.getElementById('h3').scrollIntoView({behavior:'smooth'})">Primary, general, and runoff structures</li><li onclick="document.getElementById('h4').scrollIntoView({behavior:'smooth'})">How absentee and early voting affects outcomes</li></ul></div>
+  <div><div class="sidebar-section-label">The Complete Course</div>
+  <div class="sidebar-card"><h4>100+ pages. The full system.</h4><p>Every stage of the journey. Included with every city seat.</p><a class="sidebar-btn sidebar-btn-ghost" href="#" onclick="openPopup();return false;">Learn More &rarr;</a></div></div>
+</aside>
+</div>
+<div class="related"><div class="related-inner">
+  <div class="related-eyebrow">Keep Reading</div>
+  <div class="related-heading">More from How To Become Mayor</div>
+  <div class="related-grid"><a class="related-card" href="https://howtobecomemayor.com/requirements-to-run-for-mayor"><div class="related-card-cat">Getting Started</div><div class="related-card-title">Requirements to Run for Mayor</div><div class="related-card-time">8 min read</div></a><a class="related-card" href="https://howtobecomemayor.com/how-many-votes-to-win-a-mayoral-election"><div class="related-card-cat">The Campaign</div><div class="related-card-title">How Many Votes to Win a Mayoral Election?</div><div class="related-card-time">7 min read</div></a><a class="related-card" href="https://howtobecomemayor.com/how-to-run-for-mayor-without-a-political-party"><div class="related-card-cat">Strategy</div><div class="related-card-title">How to Run for Mayor Without a Political Party</div><div class="related-card-time">8 min read</div></a></div>
+</div></div>
+<div id="footer-placeholder"></div>
+<div class="sticky-bar" id="stickyBar"><div class="sticky-bar-text"><strong>Your city&rsquo;s seat may still be available.</strong> Check before someone else does.</div><button class="sticky-bar-btn" onclick="openPopup()">Check My City &rarr;</button><button class="sticky-close" onclick="document.getElementById('stickyBar').classList.remove('show')">&times;</button></div>
+<div class="popup-overlay" id="popupOverlay" onclick="if(event.target===this)closePopup()"><div class="popup-box"><button class="popup-x" onclick="closePopup()">&times;</button><div class="popup-eye">One Seat Per City</div><h3>Check if your city is still available.</h3><p>Enter your details. We respond within 24 hours. No commitment required.</p><div class="popup-form" id="popupForm"><input class="popup-input" type="text" id="popName" placeholder="Your first name"/><input class="popup-input" type="email" id="popEmail" placeholder="Your email address"/><input class="popup-input" type="text" id="popCity" placeholder="Your city and state (e.g. Denver, CO)"/><button class="popup-submit" onclick="submitPopup()">Check My City&rsquo;s Availability &rarr;</button><p class="popup-fine">No credit card. No commitment. One decision.</p></div></div></div>
+<script>
+let dismissed=false;
+window.addEventListener('scroll',function(){if(dismissed)return;if(window.scrollY/(document.body.scrollHeight-window.innerHeight)>0.3)document.getElementById('stickyBar').classList.add('show');});
+function openPopup(){document.getElementById('popupOverlay').classList.add('show');document.body.style.overflow='hidden';}
+function closePopup(){document.getElementById('popupOverlay').classList.remove('show');document.body.style.overflow='';}
+function submitPopup(){const n=document.getElementById('popName').value.trim(),e=document.getElementById('popEmail').value.trim(),c=document.getElementById('popCity').value.trim();if(!n||!e||!c){alert('Please fill in all three fields.');return;}document.getElementById('popupForm').innerHTML=`<div style="text-align:center;padding:20px 0;"><div style="font-size:48px;color:var(--gold);margin-bottom:14px;">&#10003;</div><div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:white;margin-bottom:10px;">You're on the list.</div><div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;">We'll contact you within 24 hours about <strong style="color:white;">${c}</strong>.</div></div>`;}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup();});
+</script>
+<script src="/js/components.js"></script>
+</body></html>

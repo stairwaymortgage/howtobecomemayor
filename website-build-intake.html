@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Build Intake — HowToBecomeMayor.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1628;--navy-mid:#1a2d4a;--navy-light:#243d5c;
+  --gold:#c9a84c;--gold-dim:rgba(201,168,76,0.15);
+  --white:#ffffff;--text:#1a1a1a;--muted:#555;
+  --border:rgba(10,22,40,0.12);--border-gold:rgba(201,168,76,0.3);
+  --bg:#f8f5ef;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* HEADER */
+.header{background:var(--navy);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border-gold)}
+.header-logo{font-family:'Cormorant Garamond',serif;font-size:17px;color:white;text-decoration:none;line-height:1.2}
+.header-logo span{display:block;font-size:10px;font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.14em;color:var(--gold);text-transform:uppercase}
+
+/* HERO */
+.hero{background:var(--navy);padding:56px 40px 48px;border-bottom:1px solid var(--border-gold)}
+.hero-inner{max-width:680px}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.hero-line{width:28px;height:1px;background:var(--gold)}
+.hero-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:white;line-height:1.1;margin-bottom:16px}
+.hero p{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.8;max-width:560px}
+
+/* PROGRESS */
+.progress-wrap{background:var(--navy-mid);padding:20px 40px;border-bottom:1px solid var(--border-gold);position:sticky;top:0;z-index:50}
+.progress-inner{max-width:760px;margin:0 auto}
+.progress-steps{display:flex;align-items:center;gap:0}
+.progress-step{display:flex;align-items:center;gap:8px;flex:1}
+.progress-step:last-child{flex:none}
+.step-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;transition:all 0.3s;border:1px solid var(--border-gold);color:rgba(255,255,255,0.4)}
+.step-num.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.step-num.done{background:rgba(201,168,76,0.2);color:var(--gold);border-color:var(--gold)}
+.step-label{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.06em;white-space:nowrap}
+.step-label.active{color:var(--gold)}
+.step-connector{flex:1;height:1px;background:var(--border-gold);margin:0 8px}
+
+/* MAIN */
+.main{max-width:760px;margin:0 auto;padding:48px 40px 80px}
+
+/* SECTIONS */
+.section{display:none}
+.section.active{display:block}
+
+.section-header{margin-bottom:36px}
+.section-num{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:10px}
+.section-desc{font-size:14px;color:var(--muted);line-height:1.75;max-width:560px}
+
+/* FORM ELEMENTS */
+.field{margin-bottom:28px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+label{display:block;font-size:12px;font-weight:500;color:var(--navy);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px}
+label .req{color:var(--gold);margin-left:2px}
+label .hint{font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:400;display:block;margin-top:3px}
+input[type=text],input[type=email],input[type=url],select,textarea{
+  width:100%;padding:13px 16px;background:var(--white);border:1px solid var(--border);
+  font-size:14px;font-family:'DM Sans',sans-serif;color:var(--text);
+  outline:none;transition:border-color 0.2s;border-radius:0;
+  appearance:none;-webkit-appearance:none
+}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+textarea{resize:vertical;min-height:120px;line-height:1.7}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+
+/* RADIO / CHECKBOX GROUPS */
+.option-group{display:flex;flex-direction:column;gap:10px}
+.option-group.horizontal{flex-direction:row;flex-wrap:wrap;gap:10px}
+.option-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--white);border:1px solid var(--border);cursor:pointer;transition:border-color 0.2s}
+.option-item:hover{border-color:var(--border-gold)}
+.option-item.selected{border-color:var(--gold);background:var(--gold-dim)}
+.option-item input{display:none}
+.option-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;transition:all 0.2s}
+.option-item.selected .option-dot{border-color:var(--gold);background:var(--gold)}
+.option-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:white;display:none}
+.option-item.selected .option-dot::after{display:block}
+.option-check{width:18px;height:18px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;transition:all 0.2s}
+.option-item.checked .option-check{border-color:var(--gold);background:var(--gold)}
+.option-check::after{content:'✓';font-size:11px;color:white;display:none}
+.option-item.checked .option-check::after{display:block}
+.option-text{font-size:14px;color:var(--text);line-height:1.5}
+.option-sub{font-size:12px;color:var(--muted);margin-top:3px}
+
+/* CHAR COUNT */
+.char-wrap{position:relative}
+.char-count{position:absolute;bottom:10px;right:12px;font-size:11px;color:var(--muted)}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:36px 0}
+
+/* CALLOUT */
+.callout{background:var(--navy);border-left:3px solid var(--gold);padding:20px 24px;margin-bottom:28px}
+.callout p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.75}
+.callout strong{color:var(--gold)}
+
+/* NAV BUTTONS */
+.nav-buttons{display:flex;justify-content:space-between;align-items:center;margin-top:48px;padding-top:32px;border-top:1px solid var(--border)}
+.btn-back{background:transparent;border:1px solid var(--border);color:var(--muted);font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:12px 24px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.btn-back:hover{border-color:var(--navy);color:var(--navy)}
+.btn-next{background:var(--navy);color:white;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:14px 32px;cursor:pointer;font-family:'DM Sans',sans-serif;border:none;transition:background 0.2s}
+.btn-next:hover{background:var(--navy-mid)}
+.btn-submit{background:var(--gold);color:var(--navy);font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 40px;cursor:pointer;font-family:'DM Sans',sans-serif;border:none;transition:background 0.2s}
+.btn-submit:hover{background:#d4b05a}
+.step-indicator{font-size:12px;color:var(--muted)}
+
+/* CONFIRMATION */
+.confirmation{text-align:center;padding:80px 40px}
+.confirm-icon{font-size:56px;color:var(--gold);margin-bottom:24px}
+.confirm-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--navy);margin-bottom:16px}
+.confirm-text{font-size:15px;color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto 32px}
+.confirm-details{background:var(--navy);padding:28px 32px;max-width:480px;margin:0 auto;text-align:left}
+.confirm-details p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8}
+.confirm-details strong{color:var(--gold)}
+
+/* FOOTER */
+.footer{background:var(--navy);border-top:1px solid var(--border-gold);padding:28px 40px;color:rgba(255,255,255,0.3);font-size:12px;line-height:1.8;margin-top:0}
+.footer a{color:var(--gold);text-decoration:none}
+
+@media(max-width:600px){
+  .header,.hero,.progress-wrap{padding-left:20px;padding-right:20px}
+  .main{padding:36px 20px 60px}
+  .field-row{grid-template-columns:1fr}
+  .step-label{display:none}
+  .hero h1{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a class="header-logo" href="https://howtobecomemayor.com">How To Become Mayor<span>HowToBecomeMayor.com</span></a>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><div class="hero-line"></div><div class="hero-label">Website Build Intake</div></div>
+    <h1>Let&rsquo;s Build Your Two Websites</h1>
+    <p>You have secured your city&rsquo;s seat. Now we build the two online presences that will define your civic journey — your personal brand site and your city-specific issues site. This intake takes approximately 20 minutes. Answer as completely as you can. The more detail you give us, the better your sites will be.</p>
+  </div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="progress-steps">
+      <div class="progress-step">
+        <div class="step-num active" id="sn1">1</div>
+        <div class="step-label active" id="sl1">You</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="progress-step">
+        <div class="step-num" id="sn2">2</div>
+        <div class="step-label" id="sl2">Your City</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="progress-step">
+        <div class="step-num" id="sn3">3</div>
+        <div class="step-label" id="sl3">Your Brand</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="progress-step">
+        <div class="step-num" id="sn4">4</div>
+        <div class="step-label" id="sl4">Site 1: Personal</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="progress-step">
+        <div class="step-num" id="sn5">5</div>
+        <div class="step-label" id="sl5">Site 2: Issues</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="progress-step">
+        <div class="step-num" id="sn6">6</div>
+        <div class="step-label" id="sl6">Technical</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN FORM -->
+<div class="main">
+
+  <!-- SECTION 1: YOU -->
+  <div class="section active" id="sec1">
+    <div class="section-header">
+      <div class="section-num">Section 1 of 6</div>
+      <div class="section-title">Tell Us About You</div>
+      <div class="section-desc">We need to understand who you are before we can represent you well online. Be as open and honest as you would be with a close advisor.</div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>First Name <span class="req">*</span></label>
+        <input type="text" id="firstName" placeholder="Your first name">
+      </div>
+      <div class="field">
+        <label>Last Name <span class="req">*</span></label>
+        <input type="text" id="lastName" placeholder="Your last name">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Email Address <span class="req">*</span></label>
+      <input type="email" id="email" placeholder="Your email address">
+    </div>
+
+    <div class="field">
+      <label>Phone Number</label>
+      <input type="text" id="phone" placeholder="Best number to reach you">
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <label>Your Current Professional Title or Role <span class="req">*</span>
+        <span class="hint">What do you do for work today? How would you introduce yourself at a chamber of commerce event?</span>
+      </label>
+      <input type="text" id="profTitle" placeholder="e.g. Real estate developer, Owner of ABC Roofing, Retired school principal">
+    </div>
+
+    <div class="field">
+      <label>Professional Background Summary <span class="req">*</span>
+        <span class="hint">Describe your career in 3&ndash;5 sentences. What have you built, led, or accomplished professionally?</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="profBackground" placeholder="I have spent the past 18 years building a commercial real estate firm in my city..." oninput="countChars(this,'cc1',600)"></textarea>
+        <span class="char-count" id="cc1">0 / 600</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Your Personal Story <span class="req">*</span>
+        <span class="hint">Why do you care about your community? What life experiences shaped the person you are today? This is the foundation of your personal brand. Write it like you are telling it to a trusted friend.</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="personalStory" style="min-height:160px" placeholder="I grew up in this city. My family has lived here for three generations..." oninput="countChars(this,'cc2',1200)"></textarea>
+        <span class="char-count" id="cc2">0 / 1200</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Why Do You Want to Become Mayor? <span class="req">*</span>
+        <span class="hint">Not the political answer. The real answer. What broke your heart about your city? What possibility are you chasing?</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="whyMayor" style="min-height:140px" placeholder="I have watched our city make the same mistake on flooding for twenty years..." oninput="countChars(this,'cc3',1000)"></textarea>
+        <span class="char-count" id="cc3">0 / 1000</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Your Target Election Year <span class="req">*</span></label>
+      <select id="targetYear">
+        <option value="">Select your target year</option>
+        <option>2026</option><option>2027</option><option>2028</option>
+        <option>2029</option><option>2030</option><option>2031</option>
+        <option>2032</option><option>2033</option><option>2034</option>
+        <option>2035</option><option>2036</option><option>2037</option>
+        <option>2038</option><option>2039</option><option>2040</option>
+        <option>2041 or later</option>
+      </select>
+    </div>
+
+    <div class="nav-buttons">
+      <span class="step-indicator">Step 1 of 6</span>
+      <button class="btn-next" onclick="goTo(2)">Continue &rarr;</button>
+    </div>
+  </div>
+
+  <!-- SECTION 2: YOUR CITY -->
+  <div class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-num">Section 2 of 6</div>
+      <div class="section-title">Tell Us About Your City</div>
+      <div class="section-desc">Your city-specific issues site is built around the real challenges your city faces. The more specific you are here, the more credible and powerful that site will be.</div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>City Name <span class="req">*</span></label>
+        <input type="text" id="cityName" placeholder="e.g. Fort Lauderdale">
+      </div>
+      <div class="field">
+        <label>State <span class="req">*</span></label>
+        <input type="text" id="cityState" placeholder="e.g. Florida">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>City Population Tier <span class="req">*</span></label>
+      <select id="cityTier">
+        <option value="">Select population range</option>
+        <option value="t1">Under 10,000</option>
+        <option value="t2">10,000 &ndash; 50,000</option>
+        <option value="t3">50,000 &ndash; 150,000</option>
+        <option value="t4">150,000 &ndash; 500,000</option>
+        <option value="t5">500,000 &ndash; 1 million</option>
+        <option value="t6">Over 1 million</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Your City&rsquo;s Form of Government <span class="req">*</span></label>
+      <select id="govForm">
+        <option value="">Select form of government</option>
+        <option>Council-Manager (professional city manager runs operations)</option>
+        <option>Strong Mayor (mayor runs city operations directly)</option>
+        <option>Commission form (commissioners run departments)</option>
+        <option>I am not sure yet</option>
+      </select>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <label>The Top Three Issues Facing Your City <span class="req">*</span>
+        <span class="hint">List the three most pressing challenges your city faces. Be specific. Not &ldquo;infrastructure&rdquo; but &ldquo;stormwater flooding in the downtown neighborhoods that has gotten worse every year for a decade.&rdquo;</span>
+      </label>
+      <div class="field" style="margin-bottom:12px">
+        <label style="font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0">Issue #1 <span class="req">*</span></label>
+        <input type="text" id="issue1" placeholder="e.g. Stormwater flooding in southeast neighborhoods affecting 8,000 homes">
+      </div>
+      <div class="field" style="margin-bottom:12px">
+        <label style="font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0">Issue #2 <span class="req">*</span></label>
+        <input type="text" id="issue2" placeholder="e.g. Housing affordability — median home price up 60% in 4 years while teacher salaries flat">
+      </div>
+      <div class="field" style="margin-bottom:0">
+        <label style="font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0">Issue #3 <span class="req">*</span></label>
+        <input type="text" id="issue3" placeholder="e.g. Neighborhood character — 14 historic blocks demolished for luxury condos since 2019">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Your Signature Issue — The One You Own Most Deeply <span class="req">*</span>
+        <span class="hint">Which of the three above — or any other issue — have you studied most deeply, care about most personally, and want to be known for citywide?</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="signatureIssue" placeholder="I have been studying our city's stormwater infrastructure for four years. I have read every capital improvement plan, attended every relevant commission meeting, and published analysis every month. Flooding is not just a policy issue for me — it destroyed my neighbor's home in 2021 and the city knew the fix that was needed and chose not to fund it." oninput="countChars(this,'cc4',800)"></textarea>
+        <span class="char-count" id="cc4">0 / 800</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Current Civic Involvement
+        <span class="hint">List any advisory boards, neighborhood associations, nonprofit boards, civic organizations, or elected positions you currently hold or participate in.</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="civicInvolve" placeholder="Planning and Zoning Advisory Board member (2 years)&#10;Neighborhood association president, Riverside District&#10;Board member, City Housing Coalition nonprofit" oninput="countChars(this,'cc5',500)"></textarea>
+        <span class="char-count" id="cc5">0 / 500</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Existing Name Recognition in Your City
+        <span class="hint">Be honest. How well known are you in your city right now? This helps us calibrate how your sites should introduce you.</span>
+      </label>
+      <div class="option-group">
+        <label class="option-item" onclick="selectRadio(this,'nameRec')">
+          <span class="option-dot"></span>
+          <div><div class="option-text">Not known yet — I am starting from zero</div></div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'nameRec')">
+          <span class="option-dot"></span>
+          <div><div class="option-text">Known in my immediate professional circle but not broadly in civic life</div></div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'nameRec')">
+          <span class="option-dot"></span>
+          <div><div class="option-text">Known in specific civic circles — neighborhood associations, certain organizations</div></div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'nameRec')">
+          <span class="option-dot"></span>
+          <div><div class="option-text">Moderately known citywide — local media has covered me, broad civic recognition</div></div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'nameRec')">
+          <span class="option-dot"></span>
+          <div><div class="option-text">Well known citywide — significant name recognition across community constituencies</div></div>
+        </label>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="goTo(1)">&larr; Back</button>
+      <div style="display:flex;align-items:center;gap:20px">
+        <span class="step-indicator">Step 2 of 6</span>
+        <button class="btn-next" onclick="goTo(3)">Continue &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: YOUR BRAND -->
+  <div class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-num">Section 3 of 6</div>
+      <div class="section-title">Your Brand &amp; Voice</div>
+      <div class="section-desc">Both of your websites need to feel like you — not like a generic politician. Help us understand your tone, your values, and the impression you want to make.</div>
+    </div>
+
+    <div class="field">
+      <label>Your Three Core Values <span class="req">*</span>
+        <span class="hint">Not the generic political values list. The actual principles that guide how you make decisions when no one is watching. Describe each in a sentence.</span>
+      </label>
+      <div class="field" style="margin-bottom:12px">
+        <input type="text" id="value1" placeholder="e.g. I believe every decision should be explainable to the person most affected by it">
+      </div>
+      <div class="field" style="margin-bottom:12px">
+        <input type="text" id="value2" placeholder="e.g. I believe government should never promise what it cannot deliver">
+      </div>
+      <div class="field" style="margin-bottom:0">
+        <input type="text" id="value3" placeholder="e.g. I believe community relationships are built through showing up before you need anything">
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <label>Tone — How Do You Want to Come Across? <span class="req">*</span>
+        <span class="hint">Select all that feel true to how you naturally communicate.</span>
+      </label>
+      <div class="option-group horizontal">
+        <label class="option-item" style="flex:none" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div class="option-text">Direct and honest</div>
+        </label>
+        <label class="option-item" style="flex:none" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div class="option-text">Warm and approachable</div>
+        </label>
+        <label class="option-item" style="flex:none" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div class="option-text">Serious and substantive</div>
+        </label>
+        <label class="option-item" style="flex:none" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div class="option-text">Optimistic and forward-looking</div>
+        </label>
+        <label class="option-item" style="flex:none" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div class="option-text">Urgent and reform-minded</div>
+        </label>
+        <label class="option-item" style="flex:none" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div class="option-text">Community-centered and collaborative</div>
+        </label>
+        <label class="option-item" style="flex:none" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div class="option-text">Data-driven and analytical</div>
+        </label>
+        <label class="option-item" style="flex:none" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div class="option-text">Story-driven and personal</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>What Do You Want People to Think After Visiting Your Sites?
+        <span class="hint">Finish this sentence: After someone visits my websites, I want them to think...</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="impression" placeholder="...that this person has been doing real work on real issues for years, that they actually understand what is wrong with our city, and that they have the character to fix it." oninput="countChars(this,'cc6',500)"></textarea>
+        <span class="char-count" id="cc6">0 / 500</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Do You Have a Tagline or Civic Motto? (Optional)
+        <span class="hint">Something you say consistently that captures your approach. Leave blank if you don&rsquo;t have one yet.</span>
+      </label>
+      <input type="text" id="tagline" placeholder="e.g. Show up before they ask. Lead before they notice.">
+    </div>
+
+    <div class="field">
+      <label>Color Preferences (Optional)
+        <span class="hint">Any colors you want used, want avoided, or associations you want to evoke? We will design within the HowToBecomeMayor.com navy and gold brand framework but can customize your sites distinctively.</span>
+      </label>
+      <input type="text" id="colorPref" placeholder="e.g. I like deep blues and greens. Avoid red — too partisan. I want it to feel calm and trustworthy.">
+    </div>
+
+    <div class="field">
+      <label>Websites, People, or Brands Whose Visual Style You Admire (Optional)
+        <span class="hint">URLs or names of sites that have a look and feel you respect. Does not have to be political.</span>
+      </label>
+      <input type="text" id="styleRef" placeholder="e.g. stripe.com, The Atlantic, fortlauderdalemayor.org">
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="goTo(2)">&larr; Back</button>
+      <div style="display:flex;align-items:center;gap:20px">
+        <span class="step-indicator">Step 3 of 6</span>
+        <button class="btn-next" onclick="goTo(4)">Continue &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: PERSONAL BRAND SITE -->
+  <div class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-num">Section 4 of 6</div>
+      <div class="section-title">Site 1 — Your Personal Brand Site</div>
+      <div class="section-desc">This site is about you as a civic leader — your story, your values, your background, and why you are doing this. It is your public identity before you are a candidate. Think of it as your permanent professional civic presence.</div>
+    </div>
+
+    <div class="callout">
+      <p><strong>What this site does:</strong> It introduces you as a person — your background, your personal story, your values, and your 14-year civic commitment. It is the site someone finds when they Google your name. It builds personal trust before they ever see a campaign.</p>
+    </div>
+
+    <div class="field">
+      <label>Desired Domain Name for Your Personal Site <span class="req">*</span>
+        <span class="hint">Do you own a domain already? What name do you want? First and last name .com is standard (e.g. jimblackburn.com). If you do not have one yet, what would you like?</span>
+      </label>
+      <input type="text" id="personalDomain" placeholder="e.g. jimblackburn.com (owned) or johnsmith.com (want to purchase)">
+    </div>
+
+    <div class="field">
+      <label>Pages You Want on Your Personal Site <span class="req">*</span>
+        <span class="hint">Select all that apply. We will build what you need.</span>
+      </label>
+      <div class="option-group">
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">Home / Landing page</div><div class="option-sub">Your headline, your story summary, a clear call to action</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">About / My Story page</div><div class="option-sub">Full personal story, professional background, values, why you are doing this</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">My Civic Journey page</div><div class="option-sub">Timeline of your civic engagement — meetings attended, boards served, initiatives led</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">Blog / Weekly content page</div><div class="option-sub">Where you publish your weekly civic analysis and community updates</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">Press / Media page</div><div class="option-sub">News coverage, interviews, published articles, speaking appearances</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">Contact page</div><div class="option-sub">How people can reach you for speaking, media, or community connection</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">Newsletter signup page</div><div class="option-sub">Where people subscribe to your weekly civic newsletter</div></div>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Professional Bio — Short Version (2&ndash;3 sentences) <span class="req">*</span>
+        <span class="hint">The version that goes in event programs, media bios, and website headers. Write it in third person.</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="bioShort" placeholder="John Smith is a Fort Lauderdale entrepreneur and civic leader with twenty years of business experience in the city. He serves on the City Planning Advisory Board and is publicly committed to a 14-year journey toward the mayoralty. He publishes a weekly newsletter on city issues followed by 2,400 engaged residents." oninput="countChars(this,'cc7',400)"></textarea>
+        <span class="char-count" id="cc7">0 / 400</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Professional Bio — Long Version (1&ndash;2 paragraphs)
+        <span class="hint">The fuller version for the About page. Third person. Include your professional history, civic involvement, family if relevant, and what drives you.</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="bioLong" style="min-height:160px" placeholder="Write the fuller version of your story here..." oninput="countChars(this,'cc8',1000)"></textarea>
+        <span class="char-count" id="cc8">0 / 1000</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Do You Have a Professional Headshot? <span class="req">*</span></label>
+      <div class="option-group">
+        <label class="option-item" onclick="selectRadio(this,'headshot')">
+          <span class="option-dot"></span><div class="option-text">Yes — I will email high-resolution photo to the build team</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'headshot')">
+          <span class="option-dot"></span><div class="option-text">I have a photo but it is not professional quality — I will get a better one within 30 days</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'headshot')">
+          <span class="option-dot"></span><div class="option-text">No — I need to get one. Please advise on what you need.</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Any Existing Published Content? (Optional)
+        <span class="hint">Links to any articles you have written, letters to the editor published, speeches given, or media coverage received. Paste URLs or describe.</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="existingContent" placeholder="Letter to the editor in the Sun Sentinel, March 2025: [URL]&#10;Interview on WLRN radio about flooding: [URL]&#10;Op-ed in the Fort Lauderdale Times: [URL]" oninput="countChars(this,'cc9',500)"></textarea>
+        <span class="char-count" id="cc9">0 / 500</span>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="goTo(3)">&larr; Back</button>
+      <div style="display:flex;align-items:center;gap:20px">
+        <span class="step-indicator">Step 4 of 6</span>
+        <button class="btn-next" onclick="goTo(5)">Continue &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: ISSUES SITE -->
+  <div class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-num">Section 5 of 6</div>
+      <div class="section-title">Site 2 — Your City-Specific Issues Site</div>
+      <div class="section-desc">This site is about your city — its challenges, your analysis, and your vision for addressing them. It is where you publish your expertise on local issues and build the issue credibility that makes your eventual candidacy compelling.</div>
+    </div>
+
+    <div class="callout">
+      <p><strong>What this site does:</strong> It establishes you as the most informed community voice on your city&rsquo;s most important issues. It is the site that gets cited by local media. It is the site that AI search engines find when someone asks about your city&rsquo;s issues. It is where your signature issue credibility lives publicly.</p>
+    </div>
+
+    <div class="field">
+      <label>Desired Domain Name for Your Issues Site <span class="req">*</span>
+        <span class="hint">This is typically city-focused, like fortlauderdaletomorrow.com or fixorlando.com or houstonissues.com. Do you own a domain? What name do you want?</span>
+      </label>
+      <input type="text" id="issuesDomain" placeholder="e.g. fortlauderdaletomorrow.com (owned) or fixmycitytx.com (want to purchase)">
+    </div>
+
+    <div class="field">
+      <label>What Is the Primary Purpose of Your Issues Site? <span class="req">*</span></label>
+      <div class="option-group">
+        <label class="option-item" onclick="selectRadio(this,'siteGoal')">
+          <span class="option-dot"></span><div><div class="option-text">Issue education — inform residents about my city&rsquo;s most pressing challenges</div></div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'siteGoal')">
+          <span class="option-dot"></span><div><div class="option-text">Civic engagement — give residents a place to learn about and engage with local government</div>
+          </div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'siteGoal')">
+          <span class="option-dot"></span><div><div class="option-text">Community building — connect residents who care about the same issues</div></div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'siteGoal')">
+          <span class="option-dot"></span><div><div class="option-text">All three — it should serve all of these purposes</div></div>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Pages You Want on Your Issues Site <span class="req">*</span></label>
+      <div class="option-group">
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">Home / Issues overview page</div><div class="option-sub">Summary of the top 3&ndash;5 issues facing your city with links to deeper analysis</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">Individual issue pages (one per major issue)</div><div class="option-sub">Deep-dive pages on each issue — causes, current status, what needs to change</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">Analysis / Blog section</div><div class="option-sub">Where you publish weekly analysis of city issues, commission decisions, and policy developments</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">City data / Resources page</div><div class="option-sub">Links to city documents, commission meeting archives, budget documents, and relevant data</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">Get Involved page</div><div class="option-sub">How residents can engage with city government — meetings to attend, boards to apply for, actions to take</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">Newsletter signup</div><div class="option-sub">Subscribe to weekly city issues analysis</div></div>
+        </label>
+        <label class="option-item" onclick="toggleCheck(this)">
+          <span class="option-check"></span><div><div class="option-text">About the Author page</div><div class="option-sub">Brief explanation of who is behind the site and why they care</div></div>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Describe Issue #1 in Depth <span class="req">*</span>
+        <span class="hint">For your signature issue — what is the problem, how long has it existed, what has the city tried, and what do you think needs to happen? This becomes the foundation of your first deep-dive issue page.</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="issue1Deep" style="min-height:160px" placeholder="Our stormwater flooding problem has been documented since 1998. The Southeast Quadrant drainage system was built for a 10-year storm but our city now faces 100-year storms regularly due to climate change and sea level rise. The city commissioned three engineering studies between 2012 and 2021 — all three recommended a $180 million infrastructure upgrade. The commission approved $40 million. Flooding events have cost residents an estimated $340 million in property damage in the same period. The fix costs less than the damage and the city has chosen not to fund it." oninput="countChars(this,'cc10',1200)"></textarea>
+        <span class="char-count" id="cc10">0 / 1200</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Describe Issue #2 in Depth
+        <span class="hint">Same depth as above — what is the problem, history, current status, and what needs to change?</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="issue2Deep" style="min-height:140px" placeholder="Describe your second issue in depth..." oninput="countChars(this,'cc11',1000)"></textarea>
+        <span class="char-count" id="cc11">0 / 1000</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Describe Issue #3 in Depth
+        <span class="hint">Same format — the problem, history, current status, and what needs to change.</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="issue3Deep" style="min-height:140px" placeholder="Describe your third issue in depth..." oninput="countChars(this,'cc12',1000)"></textarea>
+        <span class="char-count" id="cc12">0 / 1000</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Your Vision for Your City in 10 Years <span class="req">*</span>
+        <span class="hint">If the issues above were addressed and your city was being led well — what would it look like? Be specific and honest, not generic.</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="cityVision" style="min-height:140px" placeholder="In ten years, I want Fort Lauderdale to be a city where teachers and firefighters can afford to live in the neighborhoods they serve. Where a hundred-year storm doesn't flood a single home because we made the infrastructure investment that the engineering studies told us to make. Where every neighborhood has a genuine voice in the development decisions that shape its character..." oninput="countChars(this,'cc13',800)"></textarea>
+        <span class="char-count" id="cc13">0 / 800</span>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="goTo(4)">&larr; Back</button>
+      <div style="display:flex;align-items:center;gap:20px">
+        <span class="step-indicator">Step 5 of 6</span>
+        <button class="btn-next" onclick="goTo(6)">Continue &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: TECHNICAL -->
+  <div class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-num">Section 6 of 6</div>
+      <div class="section-title">Technical &amp; Social Details</div>
+      <div class="section-desc">The last section. Just the technical specifics we need to build and launch your sites correctly.</div>
+    </div>
+
+    <div class="field">
+      <label>Social Media Handles (Optional)
+        <span class="hint">Any existing accounts you want linked from your sites. Include the platform and handle.</span>
+      </label>
+      <div class="field" style="margin-bottom:12px">
+        <input type="text" id="smInstagram" placeholder="Instagram: @yourhandle">
+      </div>
+      <div class="field" style="margin-bottom:12px">
+        <input type="text" id="smLinkedIn" placeholder="LinkedIn: linkedin.com/in/yourprofile">
+      </div>
+      <div class="field" style="margin-bottom:12px">
+        <input type="text" id="smX" placeholder="X (Twitter): @yourhandle">
+      </div>
+      <div class="field" style="margin-bottom:0">
+        <input type="text" id="smFacebook" placeholder="Facebook: facebook.com/yourpage">
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <label>Hosting Preference <span class="req">*</span>
+        <span class="hint">Do you already have web hosting set up, or do you need us to recommend a hosting solution?</span>
+      </label>
+      <div class="option-group">
+        <label class="option-item" onclick="selectRadio(this,'hosting')">
+          <span class="option-dot"></span><div class="option-text">I already have hosting — I will provide credentials after submission</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'hosting')">
+          <span class="option-dot"></span><div class="option-text">I need hosting recommended — please advise</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'hosting')">
+          <span class="option-dot"></span><div class="option-text">I want you to set up hosting for me as part of the build</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>CMS / Platform Preference
+        <span class="hint">Do you have a preferred platform for managing your sites after we build them? If you have no preference, we will recommend the best option for your situation.</span>
+      </label>
+      <div class="option-group">
+        <label class="option-item" onclick="selectRadio(this,'cms')">
+          <span class="option-dot"></span><div class="option-text">WordPress — I am comfortable with it or want to learn it</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'cms')">
+          <span class="option-dot"></span><div class="option-text">Static HTML — simple and fast, I do not need to edit often</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'cms')">
+          <span class="option-dot"></span><div class="option-text">Squarespace or similar — I want a drag-and-drop editor</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'cms')">
+          <span class="option-dot"></span><div class="option-text">No preference — recommend what works best for my situation</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Email Newsletter Platform
+        <span class="hint">Weekly content publishing is central to your civic presence. Do you have an email platform set up?</span>
+      </label>
+      <div class="option-group">
+        <label class="option-item" onclick="selectRadio(this,'email')">
+          <span class="option-dot"></span><div class="option-text">Yes — I already use Mailchimp / ConvertKit / Substack / other</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'email')">
+          <span class="option-dot"></span><div class="option-text">No — I need a recommendation on what to use</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'email')">
+          <span class="option-dot"></span><div class="option-text">I want it set up as part of the build</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <label>Timeline Expectations <span class="req">*</span>
+        <span class="hint">When do you need your sites launched? Per the membership calendar, sites are built and delivered by March 31.</span>
+      </label>
+      <div class="option-group">
+        <label class="option-item" onclick="selectRadio(this,'timeline')">
+          <span class="option-dot"></span><div class="option-text">By March 31 as scheduled — I am not in a hurry</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'timeline')">
+          <span class="option-dot"></span><div class="option-text">As soon as possible — I have a specific civic event or announcement coming up</div>
+        </label>
+        <label class="option-item" onclick="selectRadio(this,'timeline')">
+          <span class="option-dot"></span><div class="option-text">I have flexibility — quality matters more than speed</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Anything Else We Should Know?
+        <span class="hint">Any specific requests, concerns, examples, or context that would help us build sites that truly represent you. No detail is too small.</span>
+      </label>
+      <div class="char-wrap">
+        <textarea id="anythingElse" placeholder="Feel free to share anything — a website you love, a specific feature you want, something you definitely do not want, a concern about how you will be represented..." oninput="countChars(this,'cc14',800)"></textarea>
+        <span class="char-count" id="cc14">0 / 800</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Best Way for the Build Team to Contact You <span class="req">*</span></label>
+      <div class="option-group horizontal">
+        <label class="option-item" style="flex:none" onclick="selectRadio(this,'contactPref')">
+          <span class="option-dot"></span><div class="option-text">Email</div>
+        </label>
+        <label class="option-item" style="flex:none" onclick="selectRadio(this,'contactPref')">
+          <span class="option-dot"></span><div class="option-text">Phone call</div>
+        </label>
+        <label class="option-item" style="flex:none" onclick="selectRadio(this,'contactPref')">
+          <span class="option-dot"></span><div class="option-text">Text message</div>
+        </label>
+        <label class="option-item" style="flex:none" onclick="selectRadio(this,'contactPref')">
+          <span class="option-dot"></span><div class="option-text">Video call (Zoom/Google Meet)</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="goTo(5)">&larr; Back</button>
+      <div style="display:flex;align-items:center;gap:20px">
+        <span class="step-indicator">Step 6 of 6</span>
+        <button class="btn-submit" onclick="submitForm()">Submit My Intake &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIRMATION -->
+  <div class="section" id="secDone">
+    <div class="confirmation">
+      <div class="confirm-icon">&#10003;</div>
+      <div class="confirm-title">Your intake is submitted.</div>
+      <div class="confirm-text">The build team will review your responses and contact you within 48 hours to confirm details and outline next steps. Your two websites will be built and delivered by March 31.</div>
+      <div class="confirm-details">
+        <p><strong>What happens next:</strong></p>
+        <p>1. Build team reviews your intake within 48 hours<br>
+        2. We contact you to confirm domain access and photo delivery<br>
+        3. Design review call scheduled (30 minutes)<br>
+        4. First drafts delivered for your review<br>
+        5. Two rounds of revisions included<br>
+        6. Final sites live by March 31</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>How To Become Mayor &nbsp;&middot;&nbsp; <a href="https://howtobecomemayor.com">HowToBecomeMayor.com</a> &nbsp;&middot;&nbsp; Character Branding&reg; is a registered trademark of James J. Blackburn.</div>
+</div>
+
+<script>
+let current = 1;
+
+function goTo(n) {
+  // Basic validation on leaving section 1
+  if (current === 1 && n > 1) {
+    if (!document.getElementById('firstName').value.trim() ||
+        !document.getElementById('lastName').value.trim() ||
+        !document.getElementById('email').value.trim()) {
+      alert('Please complete your first name, last name, and email before continuing.');
+      return;
+    }
+  }
+
+  document.getElementById('sec' + current).classList.remove('active');
+  current = n;
+  const target = n === 'done' ? 'secDone' : 'sec' + n;
+  document.getElementById(target).classList.add('active');
+
+  // Update progress
+  for (let i = 1; i <= 6; i++) {
+    const num = document.getElementById('sn' + i);
+    const lbl = document.getElementById('sl' + i);
+    if (i < current) {
+      num.className = 'step-num done';
+    } else if (i === current) {
+      num.className = 'step-num active';
+      lbl.className = 'step-label active';
+    } else {
+      num.className = 'step-num';
+      lbl.className = 'step-label';
+    }
+  }
+
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function selectRadio(el, group) {
+  document.querySelectorAll('[onclick*="' + group + '"]').forEach(function(item) {
+    item.classList.remove('selected');
+  });
+  el.classList.add('selected');
+}
+
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+}
+
+function countChars(el, counterId, max) {
+  const len = el.value.length;
+  const counter = document.getElementById(counterId);
+  counter.textContent = len + ' / ' + max;
+  counter.style.color = len > max * 0.9 ? '#c9a84c' : '';
+}
+
+function submitForm() {
+  const email = document.getElementById('email').value.trim();
+  const firstName = document.getElementById('firstName').value.trim();
+  const city = document.getElementById('cityName').value.trim();
+
+  if (!email || !firstName) {
+    alert('Please make sure your name and email are filled in on Section 1.');
+    goTo(1);
+    return;
+  }
+
+  if (!city) {
+    alert('Please fill in your city name in Section 2.');
+    goTo(2);
+    return;
+  }
+
+  // Success
+  document.getElementById('sec6').classList.remove('active');
+  document.getElementById('secDone').classList.add('active');
+
+  // Update progress — all done
+  for (let i = 1; i <= 6; i++) {
+    document.getElementById('sn' + i).className = 'step-num done';
+  }
+
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Blog — How To Become Mayor</title>
+<meta name="description" content="Honest, complete answers to every question about becoming mayor — from your first commission meeting to your winning campaign. 40 in-depth guides built on the Character Branding system.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0a1628; --navy-mid: #1a2d4a; --navy-light: #243d5c;
+  --gold: #c9a84c; --gold-light: #e8d5a3;
+  --white: #ffffff; --border: rgba(201,168,76,0.3);
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--white); }
+
+/* HERO */
+.blog-hero { background: var(--navy); padding: 72px 40px 52px; position: relative; overflow: hidden; }
+.blog-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+.blog-hero-inner { position: relative; z-index: 1; max-width: 1040px; margin: 0 auto; }
+.blog-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.blog-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+.blog-eyebrow-text { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.blog-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 6vw, 64px); font-weight: 700; line-height: 1.05; color: var(--white); margin-bottom: 22px; }
+.blog-hero h1 em { color: var(--gold); font-style: italic; }
+.blog-hero-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.75; max-width: 600px; font-weight: 300; }
+
+/* GRID */
+.blog-wrap { background: var(--navy); padding: 8px 40px 88px; }
+.blog-grid { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.post-card { background: var(--navy-mid); border: 1px solid var(--border); padding: 28px 26px; text-decoration: none; display: flex; flex-direction: column; transition: border-color 0.2s, background 0.2s, transform 0.2s; }
+.post-card:hover { border-color: var(--gold); background: var(--navy-light); transform: translateY(-3px); }
+.post-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+.post-card-num { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 700; color: var(--gold); opacity: 0.45; line-height: 1; }
+.post-card-cat { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); text-align: right; }
+.post-card-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--white); line-height: 1.25; margin-bottom: 14px; }
+.post-card-excerpt { font-size: 13.5px; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; margin-bottom: 22px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; flex: 1; }
+.post-card-meta { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid rgba(201,168,76,0.15); }
+.post-card-time { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
+.post-card-arrow { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+
+@media (max-width: 900px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .blog-hero { padding: 52px 20px 40px; }
+  .blog-wrap { padding: 8px 20px 64px; }
+  .blog-grid { grid-template-columns: 1fr; gap: 16px; }
+  .post-card { padding: 24px 22px; }
+}
+</style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="blog-hero">
+  <div class="blog-hero-grid"></div>
+  <div class="blog-hero-inner">
+    <div class="blog-eyebrow">
+      <div class="blog-eyebrow-line"></div>
+      <div class="blog-eyebrow-text">The How To Become Mayor Blog</div>
+    </div>
+    <h1>Every question about<br>becoming mayor — <em>answered.</em></h1>
+    <p class="blog-hero-sub">40 in-depth guides covering the complete journey from engaged citizen to elected mayor. Built on the Character Branding® system. No spin — just the honest, complete answers most political books never give you.</p>
+  </div>
+</div>
+
+<div class="blog-wrap">
+  <div class="blog-grid">
+      <a class="post-card" href="/how-to-become-mayor-with-no-experience">
+        <div class="post-card-top">
+          <span class="post-card-num">01</span>
+          <span class="post-card-cat">Getting Started</span>
+        </div>
+        <h2 class="post-card-title">How to Become Mayor With No Experience</h2>
+        <p class="post-card-excerpt">Becoming mayor with no experience is not only possible — in most American cities, the outsider without a political record has a structural advantage that career politicians cannot replicate. Here is the honest, complete answer to how to become mayor with no experience.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/first-step-to-becoming-mayor">
+        <div class="post-card-top">
+          <span class="post-card-num">02</span>
+          <span class="post-card-cat">Getting Started</span>
+        </div>
+        <h2 class="post-card-title">The First Step to Becoming Mayor</h2>
+        <p class="post-card-excerpt">The first step to becoming mayor is simpler than almost every future candidate expects — and more powerful than almost any of them realize. It does not require money, connections, or political experience. It requires showing up to your city commission meeting and paying attention.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-long-does-it-take-to-become-mayor">
+        <div class="post-card-top">
+          <span class="post-card-num">03</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How Long Does It Take to Become Mayor?</h2>
+        <p class="post-card-excerpt">How long does it take to become mayor starting from zero? The honest answer is 10 to 14 years — and that answer is not discouraging. It is the most important strategic insight available to anyone serious about winning a mayoral race in a competitive American city.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">9 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/requirements-to-run-for-mayor">
+        <div class="post-card-top">
+          <span class="post-card-num">04</span>
+          <span class="post-card-cat">Getting Started</span>
+        </div>
+        <h2 class="post-card-title">Requirements to Run for Mayor</h2>
+        <p class="post-card-excerpt">The requirements to run for mayor in the United States are far simpler than most people expect — and understanding them is the first legal step on the path to becoming mayor of your city.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-get-involved-in-local-government">
+        <div class="post-card-top">
+          <span class="post-card-num">05</span>
+          <span class="post-card-cat">Civic Engagement</span>
+        </div>
+        <h2 class="post-card-title">How to Get Involved in Local Government</h2>
+        <p class="post-card-excerpt">Getting involved in local government is one of the most accessible civic acts available to any American resident — and for the future mayor, it is the foundational strategy of the entire path to elected leadership.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/what-does-a-mayor-do">
+        <div class="post-card-top">
+          <span class="post-card-num">06</span>
+          <span class="post-card-cat">Civic Leadership</span>
+        </div>
+        <h2 class="post-card-title">What Does a Mayor Do</h2>
+        <p class="post-card-excerpt">What does a mayor do? The honest answer is that it depends significantly on which form of government your city uses — and understanding the difference is one of the most important things a future mayor can learn before they run.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-run-for-mayor-with-no-money">
+        <div class="post-card-top">
+          <span class="post-card-num">07</span>
+          <span class="post-card-cat">The Campaign</span>
+        </div>
+        <h2 class="post-card-title">How to Run for Mayor With No Money</h2>
+        <p class="post-card-excerpt">Running for mayor with no money is not a realistic path to winning. But running for mayor with significantly less money than your opponents — because you have spent years building the community trust that paid advertising tries to manufacture — is not just possible. It has worked in cities across America.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-start-a-political-career">
+        <div class="post-card-top">
+          <span class="post-card-num">08</span>
+          <span class="post-card-cat">Getting Started</span>
+        </div>
+        <h2 class="post-card-title">How to Start a Political Career</h2>
+        <p class="post-card-excerpt">Starting a political career from scratch is simpler in concept and harder in execution than most people expect. The path is consistent across virtually every successful first-time elected official who came from outside professional politics — and it always begins locally.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">9 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/difference-between-mayor-and-city-manager">
+        <div class="post-card-top">
+          <span class="post-card-num">09</span>
+          <span class="post-card-cat">Civic Leadership</span>
+        </div>
+        <h2 class="post-card-title">Difference Between Mayor and City Manager</h2>
+        <p class="post-card-excerpt">The difference between a mayor and a city manager is one of the most practically important things a future mayor can understand — and one of the least-taught distinctions in civic education. In the majority of American cities, these two roles are completely different and must work in genuine partnership for city government to be effective.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/is-it-too-late-to-become-mayor">
+        <div class="post-card-top">
+          <span class="post-card-num">10</span>
+          <span class="post-card-cat">Getting Started</span>
+        </div>
+        <h2 class="post-card-title">Is It Too Late to Become Mayor?</h2>
+        <p class="post-card-excerpt">Is it too late to become mayor? Almost certainly not. The 14-year arc to becoming mayor works at virtually any starting age — and the life experience, professional credibility, and community relationships that come with starting later are often significant advantages rather than liabilities.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-build-credibility-to-run-for-office">
+        <div class="post-card-top">
+          <span class="post-card-num">11</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How to Build Credibility to Run for Office</h2>
+        <p class="post-card-excerpt">Building credibility to run for office is not a campaign strategy. It is a years-long process of genuine civic contribution that produces the kind of community trust that makes a political candidacy credible before you ever announce it.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-become-known-in-your-community">
+        <div class="post-card-top">
+          <span class="post-card-num">12</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How to Become Known in Your Community</h2>
+        <p class="post-card-excerpt">Becoming known in your community is one of the most important strategic investments a future mayor can make — and it is almost entirely free. It requires showing up consistently, contributing genuinely, and doing it long enough that your presence becomes a recognized part of your community's civic life.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/civic-organizations-for-political-credibility">
+        <div class="post-card-top">
+          <span class="post-card-num">13</span>
+          <span class="post-card-cat">Civic Engagement</span>
+        </div>
+        <h2 class="post-card-title">Civic Organizations for Political Credibility</h2>
+        <p class="post-card-excerpt">Civic organizations are the infrastructure of local political credibility. The future mayor who has spent years contributing genuinely to neighborhood associations, business groups, faith communities, and nonprofits arrives at their campaign with a credibility network that no amount of paid advertising can replicate.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-join-a-city-advisory-board">
+        <div class="post-card-top">
+          <span class="post-card-num">14</span>
+          <span class="post-card-cat">Civic Engagement</span>
+        </div>
+        <h2 class="post-card-title">How to Join a City Advisory Board</h2>
+        <p class="post-card-excerpt">Joining a city advisory board is one of the most strategically valuable steps a future mayor can take in the early years of their civic journey — and the application process is far more accessible than most residents expect.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-get-people-to-trust-you-as-a-candidate">
+        <div class="post-card-top">
+          <span class="post-card-num">15</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How to Get People to Trust You as a Political Candidate</h2>
+        <p class="post-card-excerpt">Getting people to trust you as a political candidate is the central challenge of every mayoral campaign — and the central insight of effective civic leadership is that by the time you become a candidate, the trust problem should already be largely solved.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/personal-branding-for-politicians">
+        <div class="post-card-top">
+          <span class="post-card-num">16</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">Personal Branding for Politicians</h2>
+        <p class="post-card-excerpt">Personal branding for politicians is one of the most misunderstood concepts in civic leadership. The version that works — particularly in local elections where voters often know you or know people who do — begins not with image but with character.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-politicians-build-trust-with-voters">
+        <div class="post-card-top">
+          <span class="post-card-num">17</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How Politicians Build Trust With Voters</h2>
+        <p class="post-card-excerpt">How politicians build trust with voters is one of the most studied questions in political science — and one of the most consistently misunderstood in political practice. What actually builds political trust at the local level is different from what most campaigns do.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-become-a-community-leader">
+        <div class="post-card-top">
+          <span class="post-card-num">18</span>
+          <span class="post-card-cat">Civic Engagement</span>
+        </div>
+        <h2 class="post-card-title">How to Become a Community Leader</h2>
+        <p class="post-card-excerpt">Becoming a community leader is the bridge between civic participant and credible political candidate — the stage at which consistent civic engagement transforms into recognized community influence that eventually makes a mayoral campaign credible.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/should-i-run-for-city-council-before-mayor">
+        <div class="post-card-top">
+          <span class="post-card-num">19</span>
+          <span class="post-card-cat">The Campaign</span>
+        </div>
+        <h2 class="post-card-title">Should I Run for City Council Before Running for Mayor?</h2>
+        <p class="post-card-excerpt">Should you run for city council or city commission before running for mayor? For the vast majority of future mayors in American cities, the answer is yes — and the reasons go well beyond the obvious credential value of having won an election before.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">9 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-much-does-it-cost-to-run-for-mayor">
+        <div class="post-card-top">
+          <span class="post-card-num">20</span>
+          <span class="post-card-cat">The Campaign</span>
+        </div>
+        <h2 class="post-card-title">How Much Does It Cost to Run for Mayor?</h2>
+        <p class="post-card-excerpt">How much does it cost to run for mayor? The honest answer is more than most first-time candidates expect and significantly less than it needs to cost for candidates who have spent years building the community trust that paid advertising tries to manufacture.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-fundraise-for-a-local-political-campaign">
+        <div class="post-card-top">
+          <span class="post-card-num">21</span>
+          <span class="post-card-cat">The Campaign</span>
+        </div>
+        <h2 class="post-card-title">How to Fundraise for a Local Political Campaign</h2>
+        <p class="post-card-excerpt">Fundraising for a local political campaign is one of the most anxiety-inducing aspects of running for office — and one of the most straightforward once you understand that it begins with genuine relationships built long before the campaign starts.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-get-endorsements-for-a-local-election">
+        <div class="post-card-top">
+          <span class="post-card-num">22</span>
+          <span class="post-card-cat">The Campaign</span>
+        </div>
+        <h2 class="post-card-title">How to Get Endorsements for a Local Election</h2>
+        <p class="post-card-excerpt">Getting endorsements for a local election is one of the most strategically important activities in any mayoral campaign — and the endorsements that matter most are earned in the years before the campaign through the quality of your civic relationships.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-win-a-local-election-with-no-name-recognition">
+        <div class="post-card-top">
+          <span class="post-card-num">23</span>
+          <span class="post-card-cat">The Campaign</span>
+        </div>
+        <h2 class="post-card-title">How to Win a Local Election With No Name Recognition</h2>
+        <p class="post-card-excerpt">Winning a local election with no name recognition is one of the most common challenges facing first-time candidates — and one of the most solvable when you understand that voter trust matters more than name recognition in local politics.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-get-your-name-on-the-ballot">
+        <div class="post-card-top">
+          <span class="post-card-num">24</span>
+          <span class="post-card-cat">The Campaign</span>
+        </div>
+        <h2 class="post-card-title">How to Get Your Name on the Ballot</h2>
+        <p class="post-card-excerpt">Getting your name on the ballot is the first official legal step in any mayoral campaign — and the process is far more accessible than most first-time candidates expect once they understand exactly what is required.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">7 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-knock-on-doors-for-a-campaign">
+        <div class="post-card-top">
+          <span class="post-card-num">25</span>
+          <span class="post-card-cat">The Campaign</span>
+        </div>
+        <h2 class="post-card-title">How to Knock on Doors for a Campaign</h2>
+        <p class="post-card-excerpt">Knocking on doors for a campaign is the single most effective direct voter contact activity available to a local political candidate — and the one most underestimated by first-time candidates who have never seen a well-run ground game in action.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-campaign-for-mayor-on-a-small-budget">
+        <div class="post-card-top">
+          <span class="post-card-num">26</span>
+          <span class="post-card-cat">The Campaign</span>
+        </div>
+        <h2 class="post-card-title">How to Campaign for Mayor on a Small Budget</h2>
+        <p class="post-card-excerpt">Campaigning for mayor on a small budget is not about doing less — it is about doing the right things in the right order and refusing to spend money on activities that produce weak results while concentrating everything on direct voter contact.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-many-votes-to-win-a-mayoral-election">
+        <div class="post-card-top">
+          <span class="post-card-num">27</span>
+          <span class="post-card-cat">The Campaign</span>
+        </div>
+        <h2 class="post-card-title">How Many Votes to Win a Mayoral Election?</h2>
+        <p class="post-card-excerpt">How many votes does it take to win a mayoral election? The answer varies by city, but the calculation is straightforward — and knowing your exact vote target is one of the most important strategic exercises in any mayoral campaign.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">7 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-do-local-elections-work">
+        <div class="post-card-top">
+          <span class="post-card-num">28</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How Do Local Elections Work?</h2>
+        <p class="post-card-excerpt">How do local elections work? The mechanics are more varied and more complex than most citizens realize — and more accessible to first-time candidates than state or national elections. Understanding your city&rsquo;s specific rules is foundational preparation for becoming mayor.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/what-issues-matter-most-in-a-mayoral-election">
+        <div class="post-card-top">
+          <span class="post-card-num">29</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">What Issues Matter Most in a Mayoral Election?</h2>
+        <p class="post-card-excerpt">What issues matter most in a mayoral election? The answer depends on your city — but the framework for identifying and owning those issues is consistent, and the candidates who win are almost always the ones who have been living those issues for years before the campaign begins.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-identify-important-issues-in-your-city">
+        <div class="post-card-top">
+          <span class="post-card-num">30</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How to Identify Important Issues in Your City</h2>
+        <p class="post-card-excerpt">Identifying the most important issues in your city is one of the most foundational research tasks that future mayors undertake — and the candidates who win are consistently those who have done this research systematically for years before the campaign begins.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-neighborhood-associations-influence-elections">
+        <div class="post-card-top">
+          <span class="post-card-num">31</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How Neighborhood Associations Influence Elections</h2>
+        <p class="post-card-excerpt">Neighborhood associations influence local elections more than any other single civic organization in most American cities — through direct voter mobilization, endorsement credibility transfer, and candidate forum control that shapes how engaged voters evaluate every candidate in the race.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/most-important-people-to-know-in-local-politics">
+        <div class="post-card-top">
+          <span class="post-card-num">32</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">Most Important People to Know in Local Politics</h2>
+        <p class="post-card-excerpt">The most important people to know in local politics are not primarily the major donors or well-connected party officials — they are the civic connectors whose deep community trust is directly translatable into the electoral support that wins mayoral elections.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/real-power-structure-in-a-city">
+        <div class="post-card-top">
+          <span class="post-card-num">33</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">The Real Power Structure in a City</h2>
+        <p class="post-card-excerpt">The real power structure in a city is almost always different from the official one displayed on org charts and described in city charters — and understanding that difference is one of the most practically important pieces of political intelligence for any future mayor.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-build-a-political-coalition">
+        <div class="post-card-top">
+          <span class="post-card-num">34</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How to Build a Political Coalition</h2>
+        <p class="post-card-excerpt">Building a political coalition is the central operational challenge of any mayoral campaign — and a genuine coalition is not assembled during the campaign. It is grown over years through the accumulation of genuine relationships that make people willing to stake their own reputations on your candidacy.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-become-mayor-as-a-political-outsider">
+        <div class="post-card-top">
+          <span class="post-card-num">35</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How to Become Mayor as a Political Outsider</h2>
+        <p class="post-card-excerpt">Becoming mayor as a political outsider is not just possible in American cities — it is increasingly the story voters want to hear. The genuine outsider who has built credibility through community service and professional achievement rather than political maneuvering has a specific set of advantages in local elections that most outsider candidates never fully leverage.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/can-a-businessperson-become-mayor">
+        <div class="post-card-top">
+          <span class="post-card-num">36</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">Can a Businessperson Become Mayor?</h2>
+        <p class="post-card-excerpt">Can a businessperson become mayor? Yes — and in most American cities, a genuine business background combined with years of civic engagement is one of the strongest possible platforms for a mayoral campaign.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-compete-against-a-career-politician">
+        <div class="post-card-top">
+          <span class="post-card-num">37</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How to Compete Against a Career Politician</h2>
+        <p class="post-card-excerpt">Competing against a career politician as a first-time outsider candidate is one of the most common challenges in local politics — and one of the most winnable, when approached with the right strategy and a realistic understanding of where career politicians are genuinely vulnerable.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/advantages-of-an-outsider-candidate">
+        <div class="post-card-top">
+          <span class="post-card-num">38</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">Advantages of an Outsider Candidate in Local Elections</h2>
+        <p class="post-card-excerpt">The advantages of an outsider candidate in local elections are real, specific, and consistently underestimated — by outsiders themselves as much as by their opponents. Understanding these advantages clearly is the foundation of a confident and credible outsider campaign.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/how-to-run-for-mayor-without-a-political-party">
+        <div class="post-card-top">
+          <span class="post-card-num">39</span>
+          <span class="post-card-cat">Strategy</span>
+        </div>
+        <h2 class="post-card-title">How to Run for Mayor Without a Political Party</h2>
+        <p class="post-card-excerpt">Running for mayor without a political party is not the exception in American local elections — it is the rule. Approximately 75 percent of American city elections are nonpartisan, meaning no party label appears on the ballot and no party nomination is required. Understanding how nonpartisan local elections work, and how to build a winning campaign without party infrastructure, is essential preparation for any future mayor.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+      <a class="post-card" href="/program-for-learning-how-to-become-mayor">
+        <div class="post-card-top">
+          <span class="post-card-num">40</span>
+          <span class="post-card-cat">Getting Started</span>
+        </div>
+        <h2 class="post-card-title">Is There a Program for Learning How to Become Mayor?</h2>
+        <p class="post-card-excerpt">Is there a program for learning how to become mayor? Until recently, the honest answer was no. There were political consulting firms, campaign training workshops, and civic leadership programs — but nothing designed specifically for the person starting from zero who wants a complete system for the full journey from engaged citizen to elected mayor.</p>
+        <div class="post-card-meta">
+          <span class="post-card-time">8 min read</span>
+          <span class="post-card-arrow">Read →</span>
+        </div>
+      </a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="/js/components.js"></script>
+</body>
+</html>
