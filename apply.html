@@ -1,544 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>City Seat Application — How To Become Mayor</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --navy: #0a1628; --navy-mid: #1a2d4a; --navy-light: #243d5c;
-    --gold: #c9a84c; --gold-light: #f8f0dc;
-    --cream: #f8f5ef; --white: #ffffff;
-    --text: #1a1a1a; --muted: #666;
-    --border: rgba(201,168,76,0.25); --border-dark: rgba(10,22,40,0.12);
-    --red: #c0392b;
-  }
-  body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--white); min-height: 100vh; }
-
-  /* TOP BAR */
-  .topbar { background: var(--red); padding: 10px 40px; text-align: center; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: white; }
-
-  /* HEADER */
-  .header { background: var(--navy); border-bottom: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; }
-  .header-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: white; line-height: 1.2; }
-  .header-logo span { display: block; font-size: 11px; font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; }
-  .header-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
-
-  /* HERO */
-  .app-hero { padding: 72px 40px 56px; max-width: 760px; }
-  .app-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
-  .app-eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
-  .app-eyebrow-text { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
-  .app-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 700; line-height: 1.1; color: white; margin-bottom: 20px; }
-  .app-hero h1 em { color: var(--gold); font-style: normal; }
-  .app-hero p { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; max-width: 580px; }
-
-  /* PROGRESS */
-  .progress-bar { padding: 0 40px 48px; max-width: 760px; }
-  .progress-steps { display: flex; gap: 0; }
-  .progress-step { flex: 1; position: relative; }
-  .progress-step-inner { display: flex; align-items: center; gap: 10px; padding: 12px 16px 12px 0; }
-  .progress-num { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.3); flex-shrink: 0; transition: all 0.3s; }
-  .progress-step.active .progress-num { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 500; }
-  .progress-step.done .progress-num { background: var(--navy-light); border-color: var(--gold); color: var(--gold); }
-  .progress-label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.25); transition: color 0.3s; }
-  .progress-step.active .progress-label { color: var(--gold); }
-  .progress-step.done .progress-label { color: rgba(255,255,255,0.4); }
-  .progress-line { position: absolute; top: 26px; left: 28px; right: 0; height: 1px; background: var(--border); z-index: 0; }
-  .progress-step:last-child .progress-line { display: none; }
-
-  /* FORM WRAPPER */
-  .form-wrapper { padding: 0 40px 80px; max-width: 760px; }
-
-  /* FORM SECTIONS */
-  .form-section { display: none; }
-  .form-section.active { display: block; animation: fadeIn 0.3s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-  .section-header { margin-bottom: 40px; }
-  .section-num { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 700; color: white; line-height: 1.2; margin-bottom: 12px; }
-  .section-title em { color: var(--gold); font-style: normal; }
-  .section-sub { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; }
-
-  /* FIELDS */
-  .field-group { display: flex; flex-direction: column; gap: 28px; margin-bottom: 40px; }
-  .field { display: flex; flex-direction: column; gap: 8px; }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .field label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
-  .field input, .field select, .field textarea {
-    padding: 14px 18px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,168,76,0.2);
-    color: white;
-    font-size: 15px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    outline: none;
-    transition: border-color 0.2s, background 0.2s;
-    -webkit-appearance: none;
-  }
-  .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.2); }
-  .field input:focus, .field select:focus, .field textarea:focus {
-    border-color: var(--gold);
-    background: rgba(255,255,255,0.06);
-  }
-  .field select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
-  .field select option { background: var(--navy-mid); color: white; }
-  .field textarea { resize: vertical; min-height: 140px; line-height: 1.7; }
-  .field-note { font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.6; margin-top: 4px; }
-
-  /* RADIO OPTIONS */
-  .radio-group { display: flex; flex-direction: column; gap: 10px; }
-  .radio-option { display: flex; align-items: flex-start; gap: 14px; padding: 16px 20px; border: 1px solid rgba(201,168,76,0.15); cursor: pointer; transition: all 0.2s; position: relative; }
-  .radio-option:hover { border-color: rgba(201,168,76,0.4); background: rgba(255,255,255,0.02); }
-  .radio-option.selected { border-color: var(--gold); background: rgba(201,168,76,0.06); }
-  .radio-dot { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.4); flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-  .radio-option.selected .radio-dot { border-color: var(--gold); background: var(--gold); }
-  .radio-dot-inner { width: 6px; height: 6px; border-radius: 50%; background: var(--navy); opacity: 0; transition: opacity 0.2s; }
-  .radio-option.selected .radio-dot-inner { opacity: 1; }
-  .radio-content { flex: 1; }
-  .radio-label { font-size: 15px; color: white; font-weight: 400; margin-bottom: 3px; }
-  .radio-sub { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.5; }
-  .radio-input { position: absolute; opacity: 0; width: 0; height: 0; }
-
-  /* SPORTS CONDITIONAL */
-  .conditional-field { display: none; margin-top: 12px; padding: 16px 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(201,168,76,0.12); }
-  .conditional-field.visible { display: block; animation: fadeIn 0.2s ease; }
-
-  /* NAVIGATION */
-  .form-nav { display: flex; align-items: center; justify-content: space-between; padding-top: 8px; }
-  .btn-back { background: transparent; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 28px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
-  .btn-back:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
-  .btn-next { background: var(--gold); border: none; color: var(--navy); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 40px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
-  .btn-next:hover { background: #d4b05a; }
-  .btn-next:active { transform: scale(0.98); }
-  .nav-spacer { width: 120px; }
-
-  /* ERROR STATE */
-  .field input.error, .field select.error, .field textarea.error { border-color: var(--red); }
-  .field-error { font-size: 12px; color: #e74c3c; margin-top: 4px; display: none; }
-  .field-error.visible { display: block; }
-
-  /* CONFIRMATION */
-  .confirmation { display: none; padding: 80px 40px; max-width: 760px; }
-  .confirmation.visible { display: block; animation: fadeIn 0.4s ease; }
-  .confirm-icon { width: 64px; height: 64px; background: rgba(201,168,76,0.15); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; margin-bottom: 32px; }
-  .confirm-icon svg { width: 28px; height: 28px; stroke: var(--gold); fill: none; stroke-width: 2; }
-  .confirm-title { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 700; color: white; line-height: 1.1; margin-bottom: 20px; }
-  .confirm-title em { color: var(--gold); font-style: normal; }
-  .confirm-body { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.85; max-width: 520px; margin-bottom: 40px; font-weight: 300; }
-  .confirm-details { border: 1px solid var(--border); padding: 28px 32px; margin-bottom: 32px; max-width: 520px; }
-  .confirm-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(201,168,76,0.1); }
-  .confirm-row:last-child { border-bottom: none; }
-  .confirm-row-label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-  .confirm-row-value { font-size: 14px; color: white; font-weight: 500; }
-  .confirm-note { font-size: 13px; color: rgba(255,255,255,0.3); line-height: 1.7; max-width: 520px; }
-
-  /* FOOTER */
-  .footer { border-top: 1px solid var(--border); padding: 32px 40px; color: rgba(255,255,255,0.25); font-size: 12px; line-height: 1.7; }
-  .footer a { color: var(--gold); text-decoration: none; }
-
-  @media (max-width: 640px) {
-    .topbar { padding: 10px 20px; font-size: 10px; }
-    .header { padding: 16px 20px; }
-    .header-tag { display: none; }
-    .app-hero { padding: 48px 20px 40px; }
-    .progress-bar { padding: 0 20px 40px; }
-    .progress-label { display: none; }
-    .form-wrapper { padding: 0 20px 60px; }
-    .field-row { grid-template-columns: 1fr; }
-    .form-nav { gap: 12px; }
-    .btn-back { padding: 14px 20px; }
-    .btn-next { padding: 16px 28px; flex: 1; text-align: center; }
-    .confirmation { padding: 48px 20px; }
-    .footer { padding: 24px 20px; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply — How to Become Mayor</title>
+  <meta name="description" content="Membership in the community is by application — read by a Review Panel and decided on vision and character." />
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
+  <div id="nav-placeholder"></div>
 
-<div id="nav-placeholder"></div>
-
-<div class="app-hero">
-  <div class="app-eyebrow"><div class="app-eyebrow-line"></div><div class="app-eyebrow-text">Confidential Application</div></div>
-  <h1>Tell us about<br>yourself and your <em>city.</em></h1>
-  <p>This application takes approximately three minutes. We review every submission and respond within 24 hours to confirm your city's availability and discuss next steps. There is no commitment required to apply.</p>
-</div>
-
-<div class="progress-bar">
-  <div class="progress-steps">
-    <div class="progress-step active" id="step-1">
-      <div class="progress-step-inner">
-        <div class="progress-num">1</div>
-        <div class="progress-label">Your City</div>
-      </div>
-      <div class="progress-line"></div>
-    </div>
-    <div class="progress-step" id="step-2">
-      <div class="progress-step-inner">
-        <div class="progress-num">2</div>
-        <div class="progress-label">Your Timeline</div>
-      </div>
-      <div class="progress-line"></div>
-    </div>
-    <div class="progress-step" id="step-3">
-      <div class="progress-step-inner">
-        <div class="progress-num">3</div>
-        <div class="progress-label">Your Background</div>
-      </div>
-      <div class="progress-line"></div>
-    </div>
-    <div class="progress-step" id="step-4">
-      <div class="progress-step-inner">
-        <div class="progress-num">4</div>
-        <div class="progress-label">Your Case</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-wrapper">
-
-  <!-- SECTION 1: YOUR CITY -->
-  <div class="form-section active" id="section-1">
-    <div class="section-header">
-      <div class="section-num">Section 01 of 04</div>
-      <div class="section-title">Your <em>City</em></div>
-      <div class="section-sub">Tell us which city you are applying for and confirm your residency.</div>
-    </div>
-    <div class="field-group">
-      <div class="field-row">
-        <div class="field">
-          <label>First Name</label>
-          <input type="text" id="firstName" placeholder="James" />
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div data-reveal>
+          <span class="eyebrow">The Application</span>
+          <h1>Joined by application. Decided on <em>character</em>.</h1>
         </div>
-        <div class="field">
-          <label>Last Name</label>
-          <input type="text" id="lastName" placeholder="Blackburn" />
+        <aside class="hero-meta" data-reveal>
+          <dl>
+            <div><dt>Read by</dt><dd>The Review Panel — every application, in full.</dd></div>
+            <div><dt>Decision</dt><dd>One of three outcomes, within thirty days.</dd></div>
+            <div><dt>Privacy</dt><dd>Admission is a private matter between you and the community.</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="prose">
+          <p class="lede">Before you begin: this application is a real evening of work, and that is on purpose. The five substantive questions ask for 150&ndash;400 words each, written in your own voice. Please do not use AI to draft your answers &mdash; the Panel reads for the specific texture of a real person thinking, and generic writing is easy to spot.</p>
+          <p>An open seat in your city is not a guarantee of admission, and payment is not the deciding factor. What you are building, why you are building it, and the frame that makes it mean something beyond politics &mdash; those are.</p>
         </div>
       </div>
-      <div class="field">
-        <label>Email Address</label>
-        <input type="email" id="email" placeholder="you@yourdomain.com" />
-      </div>
-      <div class="field">
-        <label>City and State You Are Applying For</label>
-        <input type="text" id="city" placeholder="e.g. Fort Lauderdale, FL" />
-        <div class="field-note">You may only apply for a city where you are a current resident.</div>
-      </div>
-      <div class="field">
-        <label>How Long Have You Lived There?</label>
-        <select id="residency">
-          <option value="" disabled selected>Select one</option>
-          <option>Less than 1 year</option>
-          <option>1 – 3 years</option>
-          <option>3 – 5 years</option>
-          <option>5 – 10 years</option>
-          <option>More than 10 years</option>
-          <option>My entire life</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-nav">
-      <div class="nav-spacer"></div>
-      <button class="btn-next" onclick="nextSection(1)">Continue →</button>
-    </div>
-  </div>
+    </section>
 
-  <!-- SECTION 2: YOUR TIMELINE -->
-  <div class="form-section" id="section-2">
-    <div class="section-header">
-      <div class="section-num">Section 02 of 04</div>
-      <div class="section-title">Your <em>Timeline</em></div>
-      <div class="section-sub">Help us understand where you are in your journey and what you are working toward.</div>
-    </div>
-    <div class="field-group">
-      <div class="field">
-        <label>What Year Do You Plan to Run for Mayor?</label>
-        <select id="runYear">
-          <option value="" disabled selected>Select a year</option>
-          <option>2028</option>
-          <option>2030</option>
-          <option>2032</option>
-          <option>2034</option>
-          <option>2036</option>
-          <option>2038</option>
-          <option>2040</option>
-          <option>2042</option>
-          <option>2044</option>
-          <option>2046 or later</option>
-          <option>I am not sure yet</option>
-        </select>
-        <div class="field-note">There is no wrong answer. This helps us tailor your coaching arc to your timeline.</div>
-      </div>
-    </div>
-    <div class="form-nav">
-      <button class="btn-back" onclick="prevSection(2)">← Back</button>
-      <button class="btn-next" onclick="nextSection(2)">Continue →</button>
-    </div>
-  </div>
+    <section class="section">
+      <div class="container">
+        <div style="max-width: 800px; margin-inline: auto;">
+          <form id="applyForm" class="form-shell">
+            <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+              <label for="a-website">Website</label>
+              <input id="a-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            
 
-  <!-- SECTION 3: YOUR BACKGROUND -->
-  <div class="form-section" id="section-3">
-    <div class="section-header">
-      <div class="section-num">Section 03 of 04</div>
-      <div class="section-title">Your <em>Background</em></div>
-      <div class="section-sub">We want to understand who you are, what you have built, and how you handle adversity.</div>
-    </div>
-    <div class="field-group">
-      <div class="field">
-        <label>Primary Business or Profession</label>
-        <input type="text" id="profession" placeholder="e.g. Mortgage broker, Real estate developer, Attorney" />
-      </div>
-      <div class="field">
-        <label>Annual Household Income Range</label>
-        <select id="income">
-          <option value="" disabled selected>Select a range</option>
-          <option>Under $100,000</option>
-          <option>$100,000 – $250,000</option>
-          <option>$250,000 – $500,000</option>
-          <option>$500,000 – $1,000,000</option>
-          <option>Over $1,000,000</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Have You Ever Been in a Coaching or Mentorship Program?</label>
-        <div class="radio-group">
-          <div class="radio-option" onclick="selectRadio(this, 'coaching', 'completed')">
-            <div class="radio-dot"><div class="radio-dot-inner"></div></div>
-            <div class="radio-content">
-              <div class="radio-label">Yes — and I completed it</div>
+            <h3 style="margin-bottom: 1.5rem;">The essentials</h3>
+            <div class="form-grid">
+              <div class="field">
+                <label for="a-name">Q1 &mdash; Name</label>
+                <input id="a-name" name="name" type="text" required />
+              </div>
+              <div class="field">
+                <label for="a-email">Q2 &mdash; Email</label>
+                <input id="a-email" name="email" type="email" required />
+              </div>
+              <div class="field">
+                <label for="a-city">Q3 &mdash; City you intend to serve (include the state)</label>
+                <input id="a-city" name="city" type="text" required />
+              </div>
+              <div class="field">
+                <label for="a-year">Q4 &mdash; Approximate target year of your first run</label>
+                <input id="a-year" name="targetYear" type="text" placeholder="An honest range is fine — &quot;somewhere between 2036 and 2040&quot; is a real answer" required />
+              </div>
+              <div class="field field--full">
+                <label for="a-roles">Q5 &mdash; Current civic, professional, or community roles</label>
+                <input id="a-roles" name="roles" type="text" placeholder="One or two lines. Not a résumé." required />
+              </div>
             </div>
-            <input class="radio-input" type="radio" name="coaching" value="completed" />
-          </div>
-          <div class="radio-option" onclick="selectRadio(this, 'coaching', 'left-early')">
-            <div class="radio-dot"><div class="radio-dot-inner"></div></div>
-            <div class="radio-content">
-              <div class="radio-label">Yes — but I left before finishing</div>
+
+            <h3 style="margin: 2.5rem 0 0.5rem;">The substance</h3>
+            <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem;">150&ndash;400 words each. Your own voice.</p>
+            <div class="form-grid">
+              <div class="field field--full">
+                <label for="a-q6">Q6 &mdash; How you see your own life, and your family, a decade from now</label>
+                <textarea id="a-q6" name="q6_life" required placeholder="Not the résumé version — the real one. What would make you say, ten years from now, that the decade was well spent regardless of whether you win a race?"></textarea>
+              </div>
+              <div class="field field--full">
+                <label for="a-q7">Q7 &mdash; How you see the city you intend to serve, a decade from now</label>
+                <textarea id="a-q7" name="q7_city" required placeholder="What is one specific thing you would want to be true of your city in ten years that isn't true today — and what makes it your problem to work on?"></textarea>
+              </div>
+              <div class="field field--full">
+                <label for="a-q8">Q8 &mdash; The frame that makes your commitment mean something beyond politics</label>
+                <textarea id="a-q8" name="q8_frame" required placeholder="For some of us that is faith or God. For others it is family legacy, a debt to a place or a person, an ethical center, a sense of service. We ask because we want to know that you have one. We do not ask you to share ours."></textarea>
+              </div>
+              <div class="field field--full">
+                <label for="a-q9">Q9 &mdash; Why the long horizon appeals to you, and the small consistent work you're already doing (or ready to begin this month)</label>
+                <textarea id="a-q9" name="q9_work" required placeholder="One concrete thing you do every week — or are ready to begin this month. It can be small. Small and real beats large and hypothetical."></textarea>
+              </div>
+              <div class="field field--full">
+                <label for="a-q10">Q10 &mdash; A time you took on public responsibility and it did not go the way you hoped</label>
+                <textarea id="a-q10" name="q10_setback" required placeholder="What happened, how you handled it, and what you learned about yourself. If you cannot think of one, that is worth naming — and worth explaining why."></textarea>
+              </div>
+              <div class="field field--full">
+                <label for="a-q11">Q11 &mdash; Asked plainly: is there anything in your history a reasonable observer might raise during the community's review?</label>
+                <textarea id="a-q11" name="q11_disclosure" required placeholder="Nothing is disqualifying on its own — how you address it matters far more than what it is. If the answer is genuinely no, that is an acceptable answer."></textarea>
+              </div>
             </div>
-            <input class="radio-input" type="radio" name="coaching" value="left-early" />
-          </div>
-          <div class="radio-option" onclick="selectRadio(this, 'coaching', 'no')">
-            <div class="radio-dot"><div class="radio-dot-inner"></div></div>
-            <div class="radio-content">
-              <div class="radio-label">No — this would be my first</div>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+              <button type="submit" class="btn">Submit Application</button>
+              <p id="applyStatus" class="form-status" aria-live="polite"></p>
             </div>
-            <input class="radio-input" type="radio" name="coaching" value="no" />
-          </div>
+          </form>
         </div>
       </div>
-      <div class="field">
-        <label>Have You Ever Competed in Organized Sports?</label>
-        <div class="radio-group">
-          <div class="radio-option" onclick="selectRadio(this, 'sports', 'yes'); document.getElementById('sportsDetail').classList.add('visible');">
-            <div class="radio-dot"><div class="radio-dot-inner"></div></div>
-            <div class="radio-content">
-              <div class="radio-label">Yes</div>
-            </div>
-            <input class="radio-input" type="radio" name="sports" value="yes" />
-          </div>
-          <div class="conditional-field" id="sportsDetail">
-            <input type="text" id="sportsText" placeholder="What sport and for how long? e.g. Football — 8 years, high school and college" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.2); color:white; font-size:14px; font-family:'DM Sans',sans-serif; outline:none;" />
-          </div>
-          <div class="radio-option" onclick="selectRadio(this, 'sports', 'no'); document.getElementById('sportsDetail').classList.remove('visible');">
-            <div class="radio-dot"><div class="radio-dot-inner"></div></div>
-            <div class="radio-content">
-              <div class="radio-label">No</div>
-            </div>
-            <input class="radio-input" type="radio" name="sports" value="no" />
-          </div>
+    </section>
+
+    <section class="section section--cream">
+      <div class="container">
+        <div class="prose">
+          <span class="eyebrow">What happens next</span>
+          <h2>Three outcomes, within thirty days.</h2>
+          <p>Applications are read by the Review Panel. The Panel returns one of three outcomes:</p>
+          <ul>
+            <li><strong>Admitted</strong> &mdash; you are offered a seat.</li>
+            <li><strong>Not this year</strong> &mdash; not at this time, with a written note on what the Panel would look for in a future application. Reapplication after twelve months.</li>
+            <li><strong>Not a fit</strong> &mdash; the Panel does not see a fit with the community's purpose. Reapplication after twenty-four months.</li>
+          </ul>
+          <p>The Panel does not issue rejections framed as verdicts on a person's worth. Every &ldquo;no&rdquo; is a &ldquo;not now&rdquo; or &ldquo;not here.&rdquo;</p>
+          <h3>A note on privacy</h3>
+          <p>Admission, if offered, is a private matter between you and the community. The community does not publish who its members are and does not confirm any individual's membership to any outside inquirer. If you are admitted, whether you speak about your own participation in your own life is your choice. Whether anyone else's participation is spoken about is theirs, not yours. This is how the room stays a room.</p>
         </div>
       </div>
-      <div class="field">
-        <label>Payment Preference</label>
-        <div class="radio-group">
-          <div class="radio-option" onclick="selectRadio(this, 'payment', 'upfront')">
-            <div class="radio-dot"><div class="radio-dot-inner"></div></div>
-            <div class="radio-content">
-              <div class="radio-label">I will pay my annual membership upfront</div>
-              <div class="radio-sub">Full annual fee due at seat confirmation</div>
-            </div>
-            <input class="radio-input" type="radio" name="payment" value="upfront" />
-          </div>
-          <div class="radio-option" onclick="selectRadio(this, 'payment', 'financing')">
-            <div class="radio-dot"><div class="radio-dot-inner"></div></div>
-            <div class="radio-content">
-              <div class="radio-label">I would like to explore coach financing</div>
-              <div class="radio-sub">We will provide financing details after your seat is confirmed</div>
-            </div>
-            <input class="radio-input" type="radio" name="payment" value="financing" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="form-nav">
-      <button class="btn-back" onclick="prevSection(3)">← Back</button>
-      <button class="btn-next" onclick="nextSection(3)">Continue →</button>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <!-- SECTION 4: YOUR CASE -->
-  <div class="form-section" id="section-4">
-    <div class="section-header">
-      <div class="section-num">Section 04 of 04</div>
-      <div class="section-title">Make your <em>case.</em></div>
-      <div class="section-sub">One question. No word limit. No right answer. Just the truth.</div>
-    </div>
-    <div class="field-group">
-      <div class="field">
-        <label>What is the number one reason you should be selected as the candidate for your city?</label>
-        <textarea id="whyMe" placeholder="Write whatever comes to mind. Be direct. Be honest. Be yourself. This is the most important question on this application — and there is only one wrong answer, which is not answering it." style="min-height:200px;"></textarea>
-        <div class="field-note">Your answer is read by our team before every follow-up conversation. Say what you actually think.</div>
-      </div>
-    </div>
-    <div class="form-nav">
-      <button class="btn-back" onclick="prevSection(4)">← Back</button>
-      <button class="btn-next" onclick="submitApplication()">Submit Application →</button>
-    </div>
-  </div>
+  <div id="footer-placeholder"></div>
 
-</div>
-
-<!-- CONFIRMATION -->
-<div class="confirmation" id="confirmation">
-  <div class="confirm-icon">
-    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-  </div>
-  <div class="confirm-title">Application<br><em>received.</em></div>
-  <div class="confirm-body">We have your application for <strong id="confirmCity" style="color:white;"></strong>. Our team will review it and contact you within 24 hours to confirm your city's availability and discuss next steps.</div>
-  <div class="confirm-details">
-    <div class="confirm-row">
-      <div class="confirm-row-label">Applicant</div>
-      <div class="confirm-row-value" id="confirmName"></div>
-    </div>
-    <div class="confirm-row">
-      <div class="confirm-row-label">City Applied For</div>
-      <div class="confirm-row-value" id="confirmCity2"></div>
-    </div>
-    <div class="confirm-row">
-      <div class="confirm-row-label">Target Run Year</div>
-      <div class="confirm-row-value" id="confirmYear"></div>
-    </div>
-    <div class="confirm-row">
-      <div class="confirm-row-label">Status</div>
-      <div class="confirm-row-value" style="color:var(--gold);">Under Review</div>
-    </div>
-  </div>
-  <div class="confirm-note">You will receive a confirmation email shortly. If you do not hear from us within 24 hours please check your spam folder or contact us at apply@howtobecomemayor.com</div>
-</div>
-
-<div id="footer-placeholder"></div>
-
-<script>
-  let currentSection = 1;
-  const totalSections = 4;
-  const radioValues = {};
-
-  function selectRadio(el, group, value) {
-    document.querySelectorAll(`.radio-option`).forEach(opt => {
-      if (opt.querySelector(`input[name="${group}"]`)) {
-        opt.classList.remove('selected');
-      }
-    });
-    el.classList.add('selected');
-    radioValues[group] = value;
-  }
-
-  function validateSection(num) {
-    let valid = true;
-    if (num === 1) {
-      const fields = ['firstName', 'lastName', 'email', 'city', 'residency'];
-      fields.forEach(id => {
-        const el = document.getElementById(id);
-        if (!el.value.trim()) { el.classList.add('error'); valid = false; }
-        else el.classList.remove('error');
-      });
-    }
-    if (num === 2) {
-      const el = document.getElementById('runYear');
-      if (!el.value) { el.classList.add('error'); valid = false; }
-      else el.classList.remove('error');
-    }
-    if (num === 3) {
-      const prof = document.getElementById('profession');
-      const income = document.getElementById('income');
-      if (!prof.value.trim()) { prof.classList.add('error'); valid = false; }
-      else prof.classList.remove('error');
-      if (!income.value) { income.classList.add('error'); valid = false; }
-      else income.classList.remove('error');
-      if (!radioValues['coaching']) valid = false;
-      if (!radioValues['sports']) valid = false;
-      if (!radioValues['payment']) valid = false;
-    }
-    if (num === 4) {
-      const el = document.getElementById('whyMe');
-      if (!el.value.trim() || el.value.trim().length < 20) {
-        el.classList.add('error'); valid = false;
-      } else el.classList.remove('error');
-    }
-    return valid;
-  }
-
-  function nextSection(num) {
-    if (!validateSection(num)) {
-      const wrapper = document.querySelector('.form-wrapper');
-      wrapper.style.animation = 'shake 0.3s ease';
-      setTimeout(() => wrapper.style.animation = '', 300);
-      return;
-    }
-    document.getElementById(`section-${num}`).classList.remove('active');
-    document.getElementById(`section-${num + 1}`).classList.add('active');
-    document.getElementById(`step-${num}`).classList.remove('active');
-    document.getElementById(`step-${num}`).classList.add('done');
-    document.getElementById(`step-${num + 1}`).classList.add('active');
-    currentSection = num + 1;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function prevSection(num) {
-    document.getElementById(`section-${num}`).classList.remove('active');
-    document.getElementById(`section-${num - 1}`).classList.add('active');
-    document.getElementById(`step-${num}`).classList.remove('active');
-    document.getElementById(`step-${num - 1}`).classList.remove('done');
-    document.getElementById(`step-${num - 1}`).classList.add('active');
-    currentSection = num - 1;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function submitApplication() {
-    if (!validateSection(4)) return;
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const city = document.getElementById('city').value;
-    const year = document.getElementById('runYear').value;
-    document.getElementById('confirmName').textContent = firstName + ' ' + lastName;
-    document.getElementById('confirmCity').textContent = city;
-    document.getElementById('confirmCity2').textContent = city;
-    document.getElementById('confirmYear').textContent = year;
-    document.querySelector('.form-wrapper').style.display = 'none';
-    document.querySelector('.app-hero').style.display = 'none';
-    document.querySelector('.progress-bar').style.display = 'none';
-    document.getElementById('confirmation').classList.add('visible');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // Remove error on input
-  document.querySelectorAll('input, select, textarea').forEach(el => {
-    el.addEventListener('input', () => el.classList.remove('error'));
-    el.addEventListener('change', () => el.classList.remove('error'));
-  });
-</script>
-
-<style>
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-4px); }
-    75% { transform: translateX(4px); }
-  }
-</style>
-<script src="/js/components.js"></script>
+  <script src="/js/components.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

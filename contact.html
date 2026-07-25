@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — How to Become Mayor</title>
+  <meta name="description" content="Get in touch with How to Become Mayor — for press, partnerships, and general inquiries." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div data-reveal>
+          <span class="eyebrow">Contact</span>
+          <h1>Press, partnerships, and <em>general</em> notes.</h1>
+        </div>
+        <aside class="hero-meta" data-reveal>
+          <dl>
+            <div><dt>Reply time</dt><dd>Within two business days.</dd></div>
+            <div><dt>For membership</dt><dd>Send an <a href="/apply">application</a> instead.</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div style="max-width: 680px; margin-inline: auto;">
+          <form id="contactForm" class="form-shell">
+            <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+              <label for="c-website">Website</label>
+              <input id="c-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            
+            <div class="form-grid">
+              <div class="field">
+                <label for="c-name">Your name</label>
+                <input id="c-name" name="name" type="text" required />
+              </div>
+              <div class="field">
+                <label for="c-email">Email</label>
+                <input id="c-email" name="email" type="email" required />
+              </div>
+              <div class="field field--full">
+                <label for="c-subject">Subject</label>
+                <input id="c-subject" name="subject" type="text" required />
+              </div>
+              <div class="field field--full">
+                <label for="c-msg">Message</label>
+                <textarea id="c-msg" name="message" required></textarea>
+              </div>
+            </div>
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+              <button type="submit" class="btn">Send Message</button>
+              <p id="contactStatus" class="form-status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/components.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,10 +1,11 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/index.html"
+      "source": "/about",
+      "destination": "/about.html"
     },
     {
       "source": "/blog",
@@ -12,7 +13,19 @@
     },
     {
       "source": "/apply",
-      "destination": "/application.html"
+      "destination": "/apply.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
     },
     {
       "source": "/how-to-become-mayor-with-no-experience",
@@ -173,6 +186,59 @@
     {
       "source": "/program-for-learning-how-to-become-mayor",
       "destination": "/program-for-learning-how-to-become-mayor.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/apply.html",
+      "destination": "/apply",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/inquiry",
+      "destination": "/apply",
+      "permanent": true
+    },
+    {
+      "source": "/inquiry.html",
+      "destination": "/apply",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(css|js|woff2|svg|png|jpg|jpeg|webp|ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }
