@@ -25,15 +25,26 @@ In GHL: **Settings → Custom Fields → Add Field**. Create the following nine 
 | 8 | Application — Q10 Public Setback | Multi Line | `application_q10_setback` |
 | 9 | Application — Q11 Disclosure | Multi Line | `application_q11_disclosure` |
 
+Then create two more fields for the **contact form** (the `/contact` page). Put these in their own group, **"Contact Form"** — they are not part of an application and shouldn't clutter the application view.
+
+| # | Field Name | Type | Unique Key |
+|---|---|---|---|
+| 10 | Contact — Subject | Single Line | `contact_subject` |
+| 11 | Contact — Message | Multi Line | `contact_message` |
+
 Name and email do **not** need custom fields — they map to the contact's native First Name / Last Name / Email.
 
 ---
 
-## Part 2 — The tag
+## Part 2 — The tags
 
-Create one tag: **`mayor-application`**
+Create two tags: **`mayor-application`** and **`contact-form-message`**
 
-Every synced application contact receives this tag. Build your automations off it — e.g., a workflow triggered by the tag that notifies the Review Panel, starts a 30-day decision timer, or adds the contact to a "Pending Review" pipeline stage.
+Every synced application contact receives `mayor-application`. Build your automations off it — e.g., a workflow triggered by the tag that notifies the Review Panel, starts a 30-day decision timer, or adds the contact to a "Pending Review" pipeline stage.
+
+Messages sent through the `/contact` page arrive as contacts tagged `contact-form-message` instead, carrying `contact_subject` and `contact_message`. Give this one its own notification workflow — a general enquiry should not enter the application review flow.
+
+**Because the site sends no email of its own, these tags are how anyone finds out a submission arrived.** If no workflow listens for them, submissions land silently in Contacts.
 
 **Recommended (optional) pipeline:** a "Membership Applications" pipeline with stages matching the Charter's outcomes — `Received → Under Review → Admitted / Not This Year / Not a Fit`. The website doesn't manage this; it just delivers contacts into the top.
 
@@ -41,7 +52,7 @@ Every synced application contact receives this tag. Build your automations off i
 
 ## Part 3 — Connect the website (Option A: API sync — currently built)
 
-The website's serverless function pushes each application into GHL automatically. To connect it:
+The website's serverless function pushes each application into GHL automatically. **GHL is the only delivery destination** — the site sends no email, so this connection is not an enhancement, it is the entire intake path. To connect it:
 
 **3.1 — Create a Private Integration token.**
 GHL: **Settings → Private Integrations → Create**. Name it "HowToBecomeMayor Website." Scopes required: **View Contacts, Edit Contacts** (`contacts.readonly`, `contacts.write`). Copy the token (starts with `pit-`).
@@ -58,11 +69,12 @@ Vercel → project → **Settings → Environment Variables**:
 | `GHL_LOCATION_ID` | the Location ID from 3.2 |
 
 **3.4 — Redeploy, then test.**
-Submit a test application on the site. Within seconds, a contact should appear in GHL with the `mayor-application` tag and all nine custom fields populated. Also check the email inbox — email delivery runs in parallel as the fail-safe.
+Submit a test application on the site. Within seconds, a contact should appear in GHL with the `mayor-application` tag and all nine custom fields populated. Then send a test message through `/contact` and confirm a contact appears tagged `contact-form-message` with `contact_subject` and `contact_message` filled in.
 
 **Behavior to know:**
 - The sync **upserts** by email — if the same person applies twice, their existing contact is updated, not duplicated.
-- Email delivery is the primary record. If GHL is ever unreachable, the application still arrives by email and the site still shows the applicant a success message. GHL sync failures are logged in Vercel's function logs, never shown to the applicant, and never lose an application.
+- GHL is the only record. If GHL is unreachable or misconfigured, the submitter is shown **"Delivery failed. Please try again shortly."** and asked to retry — the site will not report success for a submission that did not land. The underlying error is logged in Vercel's function logs.
+- If `GHL_PIT_TOKEN` or `GHL_LOCATION_ID` is missing, both forms fail closed with a "not configured yet" message.
 - The contact `source` is set to `howtobecomemayor.com`.
 
 ---
@@ -76,7 +88,7 @@ If instead you'd rather the application live natively in GHL as a **Survey** (GH
 3. Add the `mayor-application` tag on submission (survey settings).
 4. Copy the survey's **embed code** and send it to the website editor — the apply page's form section gets swapped for the embed.
 
-**Honest tradeoff:** the survey will render in GHL's styling inside an iframe, not the site's editorial design, and the site-side spam honeypot and email fail-safe no longer apply (GHL handles its own). You gain GHL's multi-step UX and native everything. Pick one path — running both would create duplicate intake.
+**Honest tradeoff:** the survey will render in GHL's styling inside an iframe, not the site's editorial design, and the site-side spam honeypot no longer applies (GHL handles its own). You gain GHL's multi-step UX and native everything. Pick one path — running both would create duplicate intake.
 
 ---
 

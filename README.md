@@ -17,7 +17,7 @@ A multi-file static site, ready to deploy on **Vercel** with clean URLs (no `.ht
 ├── vercel.json         (clean-URL rewrites + redirects; the retired form URL 301s to /apply)
 ├── README.md
 ├── api/
-│   └── submit.js       (serverless function — email delivery + GHL CRM sync)
+│   └── submit.js       (serverless function — GoHighLevel delivery)
 ├── GHL-SETUP.md        (GoHighLevel field spec + connection walkthrough)
 ├── css/
 │   └── style.css       (all styles, single file)
@@ -136,45 +136,42 @@ vercel dev
 
 ## Forms — LIVE (one 5-minute setup step required)
 
-Both forms (`/apply` and `/contact`) submit for real to a Vercel serverless function at `api/submit.js`, which delivers each submission to your private inbox by email via [Resend](https://resend.com). Applications arrive fully formatted, with **Reply-To set to the applicant** so you can respond with one click.
+Both forms (`/apply` and `/contact`) submit for real to a Vercel serverless function at `api/submit.js`, which delivers every submission into **GoHighLevel** as a contact. GHL is the only destination — the site sends no email itself.
 
 ### Setup (once, ~5 minutes)
 
-1. Create a free account at **resend.com** (free plan: 3,000 emails/month — far more than enough).
-2. In Resend, create an **API key** (starts with `re_`).
-3. In Vercel → your project → **Settings → Environment Variables**, add:
-
-   | Name | Value |
-   |---|---|
-   | `RESEND_API_KEY` | your Resend key |
-   | `SUBMISSIONS_EMAIL` | the private inbox that receives applications — **must be the same email you signed up to Resend with** (until you verify a domain, Resend only delivers to the account owner's address) |
-
-4. Redeploy. Done — submit a test application and check your inbox.
-
-### Later (optional, recommended): send from your own domain
-
-Verify `howtobecomemayor.com` in Resend (Settings → Domains, add the DNS records they show). Then add a third environment variable:
-
-   | Name | Value |
-   |---|---|
-   | `FROM_EMAIL` | `applications@howtobecomemayor.com` |
-
-After domain verification, `SUBMISSIONS_EMAIL` can be **any** inbox, not just the Resend account owner's.
-
-### Privacy note
-
-Application answers — including the Q11 disclosure — travel: visitor's browser → your Vercel function → Resend → your inbox. Nothing is stored on the website itself, and nothing is written to any database. If you ever want submissions stored somewhere in addition to email, that's a deliberate decision to make later, not a default.
-
-### GoHighLevel CRM sync (optional, recommended)
-
-When two more environment variables are set, every **application** is also upserted into GoHighLevel as a contact — custom fields populated, tagged `mayor-application` so workflows can trigger:
+1. Create the custom fields and tags in GHL **first** — see `GHL-SETUP.md` for the exact field table. If a key doesn't match, that answer silently won't sync.
+2. In Vercel → your project → **Settings → Environment Variables**, add:
 
    | Name | Value |
    |---|---|
    | `GHL_PIT_TOKEN` | Private Integration token (Settings → Private Integrations; scopes: View/Edit Contacts) |
    | `GHL_LOCATION_ID` | Settings → Business Profile |
 
-**The nine custom fields must be created in GHL first, with exact keys — see `GHL-SETUP.md` in this folder for the field table and full walkthrough.** Upserts match by email (no duplicates on reapplication). Email remains the primary delivery: if GHL is down or misconfigured, the application still arrives in the inbox, the applicant still sees success, and the error is logged in Vercel's function logs. Contact-form messages go to email only, not the CRM.
+3. Redeploy. Done — submit a test application and check that the contact appears in GHL.
+
+If either variable is missing, both forms return a clear "not configured yet" error rather than pretending to succeed.
+
+### What lands where
+
+| Form | Tag | Custom fields |
+|---|---|---|
+| `/apply` | `mayor-application` | the nine `application_*` fields |
+| `/contact` | `contact-form-message` | `contact_subject`, `contact_message` |
+
+Both upsert by email, so a repeat submission updates the existing contact instead of duplicating it. The contact `source` is set to `howtobecomemayor.com`.
+
+### Email notifications
+
+Handled inside GoHighLevel, not by this site. Build a workflow triggered on the **`mayor-application`** tag to notify the Review Panel (and, if you want them, a second workflow on `contact-form-message`). Changing who gets notified is a GHL change, not a code change or a redeploy.
+
+### If GHL is unreachable
+
+The submitter sees **"Delivery failed. Please try again shortly."** and the form stays filled in so they can retry. This is deliberate: GHL is the only record, so a failed upsert is a failed submission and must not be reported as success. The underlying error is logged in Vercel's function logs.
+
+### Privacy note
+
+Application answers — including the Q11 disclosure — travel: visitor's browser → your Vercel function → GoHighLevel. Nothing is stored on the website itself, and nothing is written to any other database. Everyone with Contacts access in that GHL location can read those answers — see Part 5 of `GHL-SETUP.md`.
 
 ### Spam protection
 
